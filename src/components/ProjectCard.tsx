@@ -18,7 +18,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div
-      className={`bg-bg-surface rounded-2xl p-7 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 ${
+      className={`bg-bg-surface rounded-2xl p-7 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 hover:border-palette-steel-blue/40 ${
         project.isFeatured
           ? "border-2 border-accent-border shadow-md shadow-accent-primary/5"
           : "border border-border-light shadow-sm"
@@ -99,7 +99,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md text-xs font-semibold bg-bg-surface border border-border-light text-text-primary hover:bg-bg-secondary hover:border-slate-300 shadow-xs transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md text-xs font-semibold bg-bg-surface border border-border-light text-text-primary hover:bg-bg-secondary hover:border-palette-steel-blue/40 shadow-xs transition-all duration-200 hover:-translate-y-0.5"
               >
                 <GithubIcon size={14} />
                 <span>GitHub</span>

@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
           onClick={(e) => handleNavClick(e, "#home")}
           className="flex items-center gap-3 text-text-primary font-bold text-lg tracking-tight group"
         >
-          <div className="w-[38px] h-[38px] rounded-[10px] bg-gradient-to-br from-accent-primary to-blue-500 text-white flex items-center justify-center font-extrabold text-base shadow-[0_4px_10px_rgba(79,70,229,0.25)] transition-transform duration-200 group-hover:scale-105">
+          <div className="w-[38px] h-[38px] rounded-[10px] bg-gradient-to-br from-palette-navy to-palette-steel-blue text-white flex items-center justify-center font-extrabold text-base shadow-[0_4px_10px_rgba(29,53,87,0.25)] transition-transform duration-200 group-hover:scale-105">
             AR
           </div>
           <div className="flex flex-col">

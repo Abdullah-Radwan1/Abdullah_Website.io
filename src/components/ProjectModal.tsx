@@ -16,7 +16,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-slate-900/65 backdrop-blur-sm flex items-center justify-center p-6"
+      className="fixed inset-0 z-50 bg-palette-navy/70 backdrop-blur-sm flex items-center justify-center p-6"
       onClick={onClose}
     >
       <div
@@ -34,7 +34,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
         {/* Modal Top Badges */}
         <div className="flex items-center gap-2.5 mb-3">
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-full bg-palette-light-blue/40 text-palette-navy border border-palette-steel-blue/30">
             <Zap size={12} /> {project.date}
           </span>
           {project.isFeatured && (
@@ -100,8 +100,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             <h4 className="text-sm font-bold text-text-primary mb-2">
               Architecture & Engineering Implementation
             </h4>
-            <div className="bg-slate-900 text-slate-100 p-4 rounded-xl font-mono text-xs sm:text-sm">
-              <div className="text-indigo-400 mb-2 font-semibold">
+            <div className="bg-palette-navy text-palette-cream p-4 rounded-xl font-mono text-xs sm:text-sm">
+              <div className="text-palette-light-blue mb-2 font-semibold">
                 // Engineering Strategy Highlights
               </div>
               {project.architectureNotes.map((note, i) => (
@@ -149,7 +149,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-semibold bg-bg-surface border border-border-light text-text-primary hover:bg-bg-secondary hover:border-slate-300 shadow-xs transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-semibold bg-bg-surface border border-border-light text-text-primary hover:bg-bg-secondary hover:border-palette-steel-blue/40 shadow-xs transition-all duration-200 hover:-translate-y-0.5"
               >
                 <GithubIcon size={16} />
                 <span>GitHub Repository</span>

@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = () => {
           {/* Brand Info */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-[10px] bg-gradient-to-br from-accent-primary to-blue-500 text-white flex items-center justify-center font-extrabold text-sm shadow-[0_4px_10px_rgba(79,70,229,0.25)]">
+              <div className="w-9 h-9 rounded-[10px] bg-gradient-to-br from-palette-navy to-palette-steel-blue text-white flex items-center justify-center font-extrabold text-sm shadow-[0_4px_10px_rgba(29,53,87,0.25)]">
                 AR
               </div>
               <span className="text-lg font-bold text-text-primary">
@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = () => {
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-md bg-bg-secondary border border-border-light flex items-center justify-center text-text-primary hover:bg-bg-tertiary hover:border-slate-300 transition-colors"
+                className="w-9 h-9 rounded-md bg-bg-secondary border border-border-light flex items-center justify-center text-text-primary hover:bg-bg-tertiary hover:border-palette-steel-blue/40 transition-colors"
                 aria-label="GitHub"
               >
                 <GithubIcon size={18} />
@@ -47,7 +47,7 @@ export const Footer: React.FC<FooterProps> = () => {
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-md bg-bg-secondary border border-border-light flex items-center justify-center text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-colors"
+                className="w-9 h-9 rounded-md bg-bg-secondary border border-border-light flex items-center justify-center text-palette-steel-blue hover:bg-palette-light-blue/30 hover:border-palette-steel-blue/40 transition-colors"
                 aria-label="LinkedIn"
               >
                 <LinkedinIcon size={18} />

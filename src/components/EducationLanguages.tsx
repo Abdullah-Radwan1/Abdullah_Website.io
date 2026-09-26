@@ -18,7 +18,7 @@ export const EducationLanguages: React.FC = () => {
               </h2>
             </div>
 
-            <div className="bg-bg-surface border border-border-light rounded-2xl p-7 flex flex-col gap-5 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200">
+            <div className="bg-bg-surface border border-border-light rounded-2xl p-7 flex flex-col gap-5 shadow-sm hover:shadow-md hover:border-palette-steel-blue/40 transition-all duration-200">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div className="flex items-center gap-3.5">
                   <div className="w-12 h-12 rounded-md bg-accent-light border border-accent-border flex items-center justify-center text-accent-primary">
@@ -41,7 +41,7 @@ export const EducationLanguages: React.FC = () => {
               </div>
 
               <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-border-light">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full text-sm font-bold">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-palette-light-blue/40 text-palette-navy border border-palette-steel-blue/30 rounded-full text-sm font-bold">
                   <Award size={16} />
                   <span>{EDUCATION.honors}</span>
                 </div>
@@ -65,7 +65,7 @@ export const EducationLanguages: React.FC = () => {
               </h2>
             </div>
 
-            <div className="bg-bg-surface border border-border-light rounded-2xl p-7 flex flex-col gap-4 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200">
+            <div className="bg-bg-surface border border-border-light rounded-2xl p-7 flex flex-col gap-4 shadow-sm hover:shadow-md hover:border-palette-steel-blue/40 transition-all duration-200">
               {LANGUAGES.map((lang) => (
                 <div
                   key={lang.language}

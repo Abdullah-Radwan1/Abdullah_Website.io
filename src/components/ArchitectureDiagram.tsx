@@ -20,7 +20,7 @@ export const ArchitectureDiagram: React.FC = () => {
       desc: "High-performance SPAs & SSR mobile interfaces with 95%+ Lighthouse rating & responsive state management (Redux/Zustand).",
       badge: "Client Layer",
       icon: Layers,
-      color: "text-accent-primary",
+      color: "text-palette-red",
     },
     {
       id: "nestjs-api",
@@ -29,7 +29,7 @@ export const ArchitectureDiagram: React.FC = () => {
       desc: "Modular controllers, dependency injection, custom RBAC guards, and error handling middleware for enterprise reliability.",
       badge: "Core Service",
       icon: Server,
-      color: "text-blue-600",
+      color: "text-palette-steel-blue",
     },
     {
       id: "ai-engine",
@@ -38,7 +38,7 @@ export const ArchitectureDiagram: React.FC = () => {
       desc: "Automated PDF parsing, risk score evaluation, compliance checks, and quota metering.",
       badge: "SaaS AI Pipeline",
       icon: Cpu,
-      color: "text-purple-600",
+      color: "text-palette-navy",
     },
     {
       id: "db-layer",
@@ -47,7 +47,7 @@ export const ArchitectureDiagram: React.FC = () => {
       desc: "Type-safe SQL schema design, migrations, indexing, and real-time subscription sync (Convex & MongoDB).",
       badge: "Database Layer",
       icon: Database,
-      color: "text-emerald-600",
+      color: "text-palette-steel-blue",
     },
   ];
 
@@ -58,7 +58,7 @@ export const ArchitectureDiagram: React.FC = () => {
       {/* Visual Header */}
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2.5">
-          <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-palette-steel-blue shadow-[0_0_10px_rgba(69,123,157,0.5)]" />
           <span className="text-[0.8125rem] font-mono font-semibold text-text-secondary">
             SYSTEM_ARCHITECTURE.v26.1
           </span>
@@ -67,7 +67,7 @@ export const ArchitectureDiagram: React.FC = () => {
           <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[0.7rem] font-mono font-semibold bg-bg-secondary text-text-secondary border border-border-light">
             Clean Architecture
           </span>
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.7rem] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.7rem] font-semibold bg-palette-light-blue/40 text-palette-navy border border-palette-steel-blue/30">
             <Zap size={10} /> Active
           </span>
         </div>
@@ -84,8 +84,8 @@ export const ArchitectureDiagram: React.FC = () => {
               onClick={() => setActiveNode(node.id)}
               className={`p-4 rounded-lg cursor-pointer transition-all duration-200 flex flex-col gap-2 ${
                 isActive
-                  ? "bg-accent-light border-[1.5px] border-accent-primary shadow-[0_4px_12px_rgba(79,70,229,0.12)]"
-                  : "bg-bg-primary border-[1.5px] border-border-light hover:border-slate-300"
+                  ? "bg-accent-light border-[1.5px] border-accent-primary shadow-[0_4px_12px_rgba(230,57,70,0.15)]"
+                  : "bg-bg-primary border-[1.5px] border-border-light hover:border-palette-steel-blue/40"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -129,7 +129,7 @@ export const ArchitectureDiagram: React.FC = () => {
           {selected.desc}
         </p>
         <div className="flex flex-wrap items-center gap-4 mt-1">
-          <div className="flex items-center gap-1 text-xs text-emerald-700 font-semibold">
+          <div className="flex items-center gap-1 text-xs text-palette-navy font-semibold">
             <CheckCircle2 size={13} /> Strict Typing
           </div>
           <div className="flex items-center gap-1 text-xs text-accent-primary font-semibold">

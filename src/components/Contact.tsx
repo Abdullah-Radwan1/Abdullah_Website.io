@@ -131,11 +131,11 @@ export const Contact: React.FC = () => {
 
               <button
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-bg-surface border border-border-light text-text-primary hover:bg-bg-secondary hover:border-slate-300 shadow-xs transition-all duration-200 shrink-0 cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-bg-surface border border-border-light text-text-primary hover:bg-bg-secondary hover:border-palette-steel-blue/40 shadow-xs transition-all duration-200 shrink-0 cursor-pointer"
                 title="Copy Email"
               >
                 {copied ? (
-                  <Check size={16} className="text-emerald-600" />
+                  <Check size={16} className="text-palette-red" />
                 ) : (
                   <Copy size={16} />
                 )}
@@ -148,15 +148,15 @@ export const Contact: React.FC = () => {
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-bg-surface border border-border-light rounded-2xl p-6 flex items-center justify-between shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200 no-underline group"
+              className="bg-bg-surface border border-border-light rounded-2xl p-6 flex items-center justify-between shadow-sm hover:shadow-md hover:border-palette-steel-blue/40 transition-all duration-200 no-underline group"
             >
               <div className="flex items-center gap-4">
-                <div className="w-[46px] h-[46px] rounded-md bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                <div className="w-[46px] h-[46px] rounded-md bg-palette-light-blue/30 flex items-center justify-center text-palette-steel-blue shrink-0">
                   <LinkedinIcon size={22} />
                 </div>
                 <div>
                   <span className="text-xs font-semibold text-text-muted">
-                    LinkedIn Profile
+                     LinkedIn Profile
                   </span>
                   <p className="text-[0.9375rem] font-bold text-text-primary">
                     abdullah-radwan
@@ -174,7 +174,7 @@ export const Contact: React.FC = () => {
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-bg-surface border border-border-light rounded-2xl p-6 flex items-center justify-between shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200 no-underline group"
+              className="bg-bg-surface border border-border-light rounded-2xl p-6 flex items-center justify-between shadow-sm hover:shadow-md hover:border-palette-steel-blue/40 transition-all duration-200 no-underline group"
             >
               <div className="flex items-center gap-4">
                 <div className="w-[46px] h-[46px] rounded-md bg-bg-secondary flex items-center justify-center text-text-primary shrink-0">
@@ -207,11 +207,11 @@ export const Contact: React.FC = () => {
             </p>
 
             {submitted ? (
-              <div className="p-8 bg-emerald-50 border border-emerald-200 rounded-xl text-center flex flex-col items-center gap-3 animate-in fade-in duration-300">
-                <div className="w-11 h-11 rounded-full bg-white text-emerald-600 flex items-center justify-center shadow-xs">
+              <div className="p-8 bg-palette-light-blue/20 border border-palette-steel-blue/30 rounded-xl text-center flex flex-col items-center gap-3 animate-in fade-in duration-300">
+                <div className="w-11 h-11 rounded-full bg-white text-palette-steel-blue flex items-center justify-center shadow-xs">
                   <Check size={24} />
                 </div>
-                <h4 className="text-lg font-bold text-emerald-800">
+                <h4 className="text-lg font-bold text-palette-navy">
                   Message Sent Successfully!
                 </h4>
                 <p className="text-sm text-text-secondary max-w-sm">
@@ -292,7 +292,7 @@ export const Contact: React.FC = () => {
                 </div>
 
                 {errorMessage && (
-                  <div className="flex items-start gap-2 p-3 bg-red-50 border border-red-200 rounded-md text-red-700 text-sm leading-relaxed">
+                  <div className="flex items-start gap-2 p-3 bg-palette-red/10 border border-palette-red/30 rounded-md text-palette-red text-sm leading-relaxed">
                     <AlertCircle size={18} className="shrink-0 mt-0.5" />
                     <span>{errorMessage}</span>
                   </div>

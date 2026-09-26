@@ -1,80 +1,120 @@
 @import "tailwindcss";
 
-@theme {
-  --color-bg-primary: #FAFAFC;
-  --color-bg-surface: #FFFFFF;
-  --color-bg-secondary: #F1F5F9;
-  --color-bg-tertiary: #E2E8F0;
+/* ==========================================================================
+   PRIMARY 5-COLOR PALETTE
+   Modify these 5 hex codes anytime to change the theme across the whole website!
+   1. e63946: Vibrant Red/Coral Accent
+   2. f1faee: Soft Cream Canvas Background
+   3. a8dadc: Soft Aqua Blue / Accent Surface & Subtle Borders
+   4. 457b9d: Steel Ocean Blue / Secondary Accent, Subtitles & Badges
+   5. 1d3557: Prussian Navy Blue / Deep Main Text, Headings & Primary Elements
+   ========================================================================== */
+:root {
+  --palette-red: #e63946;
+  --palette-cream: #f1faee;
+  --palette-light-blue: #a8dadc;
+  --palette-steel-blue: #457b9d;
+  --palette-navy: #1d3557;
 
-  --color-text-primary: #0F172A;
-  --color-text-secondary: #334155;
-  --color-text-muted: #64748B;
-  --color-text-light: #94A3B8;
+  /* Semantic UI Design Tokens */
+  --bg-primary: var(--palette-cream);
+  --bg-surface: #ffffff;
+  --bg-secondary: #e4f1f2;
+  --bg-tertiary: var(--palette-light-blue);
 
-  --color-accent-primary: #4F46E5;
-  --color-accent-hover: #4338CA;
-  --color-accent-light: #EEF2FF;
-  --color-accent-border: #C7D2FE;
-  --color-accent-ring: rgba(79, 70, 229, 0.25);
+  --text-primary: var(--palette-navy);
+  --text-secondary: #2c4a6f;
+  --text-muted: var(--palette-steel-blue);
+  --text-light: #6e94b3;
 
-  --color-blue-primary: #2563EB;
-  --color-blue-light: #EFF6FF;
+  --accent-primary: var(--palette-red);
+  --accent-hover: #d62839;
+  --accent-light: #fde8ea;
+  --accent-border: #f8b4b9;
 
-  --color-success-bg: #ECFDF5;
-  --color-success-text: #047857;
-  --color-success-border: #A7F3D0;
+  --accent-secondary: var(--palette-steel-blue);
+  --accent-secondary-hover: #366582;
+  --accent-secondary-light: #ebf3f7;
 
-  --color-border-light: #E2E8F0;
-  --color-border-subtle: #F1F5F9;
-  --color-border-focus: #818CF8;
+  --border-light: #d5e6e7;
+  --border-subtle: #e8f3f4;
+  --border-focus: var(--palette-steel-blue);
 
-  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-
-  --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 2px 4px 0 rgba(15, 23, 42, 0.04), 0 1px 2px 0 rgba(15, 23, 42, 0.02);
-  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
-  --shadow-xl: 0 20px 32px -8px rgba(15, 23, 42, 0.12), 0 8px 16px -4px rgba(15, 23, 42, 0.04);
-  --shadow-accent: 0 8px 20px -4px rgba(79, 70, 229, 0.25);
+  --font-sans:
+    "Inter", "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 9999px;
+
+  --shadow-xs: 0 1px 2px 0 rgba(29, 53, 87, 0.04);
+  --shadow-sm:
+    0 2px 4px 0 rgba(29, 53, 87, 0.05), 0 1px 2px 0 rgba(29, 53, 87, 0.03);
+  --shadow-md:
+    0 4px 12px -2px rgba(29, 53, 87, 0.08),
+    0 2px 6px -1px rgba(29, 53, 87, 0.04);
+  --shadow-lg:
+    0 12px 24px -4px rgba(29, 53, 87, 0.12),
+    0 4px 8px -2px rgba(29, 53, 87, 0.04);
+  --shadow-xl:
+    0 20px 32px -8px rgba(29, 53, 87, 0.16),
+    0 8px 16px -4px rgba(29, 53, 87, 0.06);
 }
 
-:root {
-  --bg-primary: #FAFAFC;
-  --bg-surface: #FFFFFF;
-  --bg-secondary: #F1F5F9;
-  --bg-tertiary: #E2E8F0;
-  --text-primary: #0F172A;
-  --text-secondary: #334155;
-  --text-muted: #64748B;
-  --text-light: #94A3B8;
-  --accent-primary: #4F46E5;
-  --accent-hover: #4338CA;
-  --accent-light: #EEF2FF;
-  --accent-border: #C7D2FE;
-  --border-light: #E2E8F0;
-  --border-subtle: #F1F5F9;
-  --header-height: 72px;
-  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+@theme {
+  /* 5 Core Palette Variables available directly in Tailwind */
+  --color-palette-red: var(--palette-red);
+  --color-palette-cream: var(--palette-cream);
+  --color-palette-light-blue: var(--palette-light-blue);
+  --color-palette-steel-blue: var(--palette-steel-blue);
+  --color-palette-navy: var(--palette-navy);
+
+  /* Semantic Theme Tokens */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-light: var(--text-light);
+
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
+  --color-accent-border: var(--accent-border);
+
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-secondary-hover: var(--accent-secondary-hover);
+  --color-accent-secondary-light: var(--accent-secondary-light);
+
+  --color-border-light: var(--border-light);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-focus: var(--border-focus);
+
+  --font-sans:
+    "Inter", "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 9999px;
-  --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 2px 4px 0 rgba(15, 23, 42, 0.04), 0 1px 2px 0 rgba(15, 23, 42, 0.02);
-  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
-  --shadow-xl: 0 20px 32px -8px rgba(15, 23, 42, 0.12), 0 8px 16px -4px rgba(15, 23, 42, 0.04);
 }
 
 html {
@@ -98,43 +138,53 @@ body {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: var(--palette-light-blue);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: var(--palette-steel-blue);
 }
 
 /* Pulse Dot Animation */
 .pulse-dot {
   width: 8px;
   height: 8px;
-  background-color: #10B981;
+  background-color: var(--palette-red);
   border-radius: 50%;
   position: relative;
   display: inline-block;
 }
 
 .pulse-dot::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #10B981;
+  background-color: var(--palette-red);
   border-radius: 50%;
   animation: pulse-ring 2s infinite ease-out;
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 0.8; }
-  100% { transform: scale(2.6); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .animate-spin {

@@ -32,7 +32,7 @@ export const Experience: React.FC = () => {
                 <div className="absolute top-1.5 -left-8 w-4 h-4 rounded-full bg-white border-[3px] border-accent-primary ring-4 ring-accent-light" />
 
                 {/* Content Card */}
-                <div className="bg-bg-surface border border-border-light rounded-2xl p-7 flex flex-col gap-4 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200">
+                <div className="bg-bg-surface border border-border-light rounded-2xl p-7 flex flex-col gap-4 shadow-sm hover:shadow-md hover:border-palette-steel-blue/40 transition-all duration-200">
                   {/* Card Top Row */}
                   <div className="flex flex-wrap items-start justify-between gap-3 border-b border-border-light pb-4">
                     <div>

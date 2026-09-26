@@ -4,10 +4,10 @@ import { Layout, Database, Terminal, GitBranch, Check } from "lucide-react";
 
 export const Skills: React.FC = () => {
   const iconMap: Record<string, React.ReactNode> = {
-    Layout: <Layout size={22} className="text-accent-primary" />,
-    Database: <Database size={22} className="text-blue-600" />,
-    Terminal: <Terminal size={22} className="text-purple-600" />,
-    GitBranch: <GitBranch size={22} className="text-emerald-600" />,
+    Layout: <Layout size={22} className="text-palette-red" />,
+    Database: <Database size={22} className="text-palette-steel-blue" />,
+    Terminal: <Terminal size={22} className="text-palette-navy" />,
+    GitBranch: <GitBranch size={22} className="text-palette-steel-blue" />,
   };
 
   return (
@@ -32,7 +32,7 @@ export const Skills: React.FC = () => {
           {SKILL_CATEGORIES.map((cat) => (
             <div
               key={cat.title}
-              className="bg-bg-surface border border-border-light rounded-2xl p-7 flex flex-col gap-5 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200"
+              className="bg-bg-surface border border-border-light rounded-2xl p-7 flex flex-col gap-5 shadow-sm hover:shadow-md hover:border-palette-steel-blue/40 transition-all duration-200"
             >
               {/* Category Header */}
               <div className="flex items-center gap-3.5">

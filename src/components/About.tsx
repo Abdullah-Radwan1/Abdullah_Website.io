@@ -11,12 +11,12 @@ import { PERSONAL_INFO } from "../data/portfolioData";
 
 export const About: React.FC = () => {
   const iconMap: Record<string, React.ReactNode> = {
-    Cpu: <Cpu size={22} className="text-accent-primary" />,
-    Layers: <Layers size={22} className="text-blue-600" />,
-    Zap: <Zap size={22} className="text-amber-600" />,
-    Target: <Target size={22} className="text-red-600" />,
-    ShieldCheck: <ShieldCheck size={22} className="text-emerald-600" />,
-    GraduationCap: <GraduationCap size={22} className="text-purple-600" />,
+    Cpu: <Cpu size={22} className="text-palette-red" />,
+    Layers: <Layers size={22} className="text-palette-steel-blue" />,
+    Zap: <Zap size={22} className="text-palette-red" />,
+    Target: <Target size={22} className="text-palette-navy" />,
+    ShieldCheck: <ShieldCheck size={22} className="text-palette-steel-blue" />,
+    GraduationCap: <GraduationCap size={22} className="text-palette-navy" />,
   };
 
   return (
@@ -70,7 +70,7 @@ export const About: React.FC = () => {
             {PERSONAL_INFO.aboutHighlights.map((highlight) => (
               <div
                 key={highlight.title}
-                className="bg-bg-surface border border-border-light rounded-2xl p-5 flex flex-col gap-2.5 shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-0.5 transition-all duration-200"
+                className="bg-bg-surface border border-border-light rounded-2xl p-5 flex flex-col gap-2.5 shadow-sm hover:shadow-md hover:border-palette-steel-blue/40 hover:-translate-y-0.5 transition-all duration-200"
               >
                 <div className="w-10 h-10 rounded-md bg-bg-secondary flex items-center justify-center border border-border-light">
                   {iconMap[highlight.icon]}
