@@ -86,9 +86,35 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.35rem' }}>
           {project.title}
         </h2>
-        <p style={{ fontSize: '1rem', color: 'var(--accent-primary)', fontWeight: 600, marginBottom: '1.5rem' }}>
+        <p style={{ fontSize: '1rem', color: 'var(--accent-primary)', fontWeight: 600, marginBottom: '1.25rem' }}>
           {project.subtitle}
         </p>
+
+        {/* Project Screenshot in Modal */}
+        {project.image && (
+          <div
+            style={{
+              width: '100%',
+              borderRadius: 'var(--radius-md)',
+              overflow: 'hidden',
+              marginBottom: '1.5rem',
+              border: '1px solid var(--border-light)',
+              backgroundColor: 'var(--bg-secondary)',
+              aspectRatio: '16 / 9'
+            }}
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}${project.image.replace(/^\//, '')}`}
+              alt={project.title}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block'
+              }}
+            />
+          </div>
+        )}
 
         {/* Description */}
         <div style={{ marginBottom: '1.5rem' }}>

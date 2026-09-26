@@ -9,6 +9,7 @@ export interface Project {
   features: string[];
   date: string;
   isFeatured?: boolean;
+  image?: string;
   metrics?: string[];
   githubUrl?: string;
   liveUrl?: string;
