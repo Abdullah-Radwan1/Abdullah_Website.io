@@ -11,9 +11,9 @@ import { PERSONAL_INFO } from "../data/portfolioData";
 
 export const About: React.FC = () => {
   const iconMap: Record<string, React.ReactNode> = {
-    Cpu: <Cpu size={22} className="text-palette-red" />,
+    Cpu: <Cpu size={22} className="text-bg-primary" />,
     Layers: <Layers size={22} className="text-palette-steel-blue" />,
-    Zap: <Zap size={22} className="text-palette-red" />,
+    Zap: <Zap size={22} className="text-bg-primary" />,
     Target: <Target size={22} className="text-palette-navy" />,
     ShieldCheck: <ShieldCheck size={22} className="text-palette-steel-blue" />,
     GraduationCap: <GraduationCap size={22} className="text-palette-navy" />,

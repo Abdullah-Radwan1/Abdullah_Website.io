@@ -4,7 +4,7 @@ import { Layout, Database, Terminal, GitBranch, Check } from "lucide-react";
 
 export const Skills: React.FC = () => {
   const iconMap: Record<string, React.ReactNode> = {
-    Layout: <Layout size={22} className="text-palette-red" />,
+    Wrench: <Layout size={22} className="text-palette-navy" />,
     Database: <Database size={22} className="text-palette-steel-blue" />,
     Terminal: <Terminal size={22} className="text-palette-navy" />,
     GitBranch: <GitBranch size={22} className="text-palette-steel-blue" />,
@@ -36,7 +36,7 @@ export const Skills: React.FC = () => {
             >
               {/* Category Header */}
               <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-md bg-bg-secondary border border-border-light flex items-center justify-center">
+                <div className="w-11 h-11 rounded-md bg-bg-secondary   flex items-center justify-center">
                   {iconMap[cat.iconName]}
                 </div>
                 <div>

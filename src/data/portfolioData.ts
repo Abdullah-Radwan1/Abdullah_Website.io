@@ -272,7 +272,7 @@ export const EXPERIENCES: ExperienceItem[] = [
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "Frontend Development",
-    iconName: "Layout",
+    iconName: "Wrench",
     description:
       "Building responsive, accessible, and high-performance user interfaces with modern web standards.",
     skills: [

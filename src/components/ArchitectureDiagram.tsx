@@ -20,7 +20,7 @@ export const ArchitectureDiagram: React.FC = () => {
       desc: "High-performance SPAs & SSR mobile interfaces with 95%+ Lighthouse rating & responsive state management (Redux/Zustand).",
       badge: "Client Layer",
       icon: Layers,
-      color: "text-palette-red",
+      color: "text-bg-primary",
     },
     {
       id: "nestjs-api",

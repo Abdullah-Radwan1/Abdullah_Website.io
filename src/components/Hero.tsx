@@ -68,7 +68,7 @@ export const Hero: React.FC<HeroProps> = () => {
       className="min-h-[calc(100vh-72px)] flex items-center justify-center py-24 px-6 bg-bg-primary relative overflow-hidden text-center"
     >
       {/* Background Glow */}
-      <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(168,218,220,0.35)_0%,rgba(241,250,238,0)_70%)] pointer-events-none" />
+      <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(118,120,237,0.18)_0%,rgba(248,247,253,0)_70%)] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-[1000px] mx-auto flex flex-col items-center">
         {/* Availability */}
@@ -128,7 +128,7 @@ export const Hero: React.FC<HeroProps> = () => {
         >
           <button
             onClick={() => handleScrollTo("projects")}
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold rounded-md bg-accent-primary text-white shadow-sm hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-4px_rgba(230,57,70,0.35)] transition-all duration-200 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold rounded-md bg-accent-primary text-white shadow-sm hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-4px_rgba(243,91,4,0.3)] transition-all duration-200 cursor-pointer"
           >
             <Code2 size={18} />
             <span>View Projects</span>
