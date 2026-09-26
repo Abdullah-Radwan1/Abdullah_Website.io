@@ -4,7 +4,7 @@ import { PERSONAL_INFO } from "../data/portfolioData";
 import cvPdf from "../assets/AbdullahCV.pdf";
 
 interface NavbarProps {
-  onOpenCvModal: () => void;
+  onOpenCvModal?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = () => {

@@ -2,12 +2,13 @@ import React from 'react';
 import { ArrowUp, Mail, FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import cvPdf from '../assets/AbdullahCV.pdf';
 
 interface FooterProps {
-  onOpenCvModal: () => void;
+  onOpenCvModal?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
+export const Footer: React.FC<FooterProps> = () => {
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -143,14 +144,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
             <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
               Download or print Abdullah Radwan's official Curriculum Vitae (PDF).
             </p>
-            <button
-              onClick={onOpenCvModal}
+            <a
+              href={cvPdf}
+              download="Abdullah_Radwan_CV.pdf"
               className="btn btn-outline btn-sm"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none' }}
             >
               <FileText size={16} />
               <span>Download CV (PDF)</span>
-            </button>
+            </a>
           </div>
         </div>
 

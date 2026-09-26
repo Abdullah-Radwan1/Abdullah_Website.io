@@ -26,11 +26,7 @@ export const PERSONAL_INFO = {
       desc: "Enforcing separation of concerns, DRY principles, and strict domain boundary layers for long-term code health.",
       icon: "Layers",
     },
-    {
-      title: "High Performance",
-      desc: "Optimizing rendering, SSR, caching strategies, and database query throughput to achieve 95%+ audit scores.",
-      icon: "Zap",
-    },
+
     {
       title: "Problem Solving",
       desc: "Deconstructing complex engineering bottlenecks into structured, testable, and maintainable software implementations.",
@@ -40,11 +36,6 @@ export const PERSONAL_INFO = {
       title: "Maintainability",
       desc: "Writing self-documenting code, strictly typed models, robust error boundaries, and clear technical documentation.",
       icon: "ShieldCheck",
-    },
-    {
-      title: "Continuous Learning",
-      desc: "Constantly refining technical capabilities across modern AI toolchains, modern frameworks, and DevOps practices.",
-      icon: "GraduationCap",
     },
   ],
 };
@@ -56,6 +47,7 @@ export const PROJECTS: Project[] = [
     subtitle: "Enterprise AI document processing & compliance platform",
     category: "saas",
     isFeatured: true,
+    image: "projects/docky.png",
     date: "Live — July 2026",
     description:
       "AI-driven contract analysis platform enabling automated PDF document analysis, risk and compliance assessment, tier-based billing, usage quota tracking, and real-time email notifications.",
@@ -94,6 +86,7 @@ export const PROJECTS: Project[] = [
     title: "APEX — Project Management System",
     subtitle: "Collaborative task management & team workspace platform",
     category: "web",
+    image: "projects/apex.png",
     date: "Live — February 2026",
     description:
       "Comprehensive project management platform featuring granular Role-Based Access Control (RBAC), team member invitations, real-time activity feeds, and notification management.",
@@ -126,6 +119,7 @@ export const PROJECTS: Project[] = [
     subtitle:
       "Enterprise-grade e-commerce application with Server-Side Rendering",
     category: "web",
+    image: "projects/angular_ecommerce.png",
     date: "Live — May 2026",
     description:
       "High-performance e-commerce platform built with Angular and NestJS featuring Server-Side Rendering (SSR), optimized checkout workflows, and strict engineering best practices.",
@@ -158,6 +152,7 @@ export const PROJECTS: Project[] = [
     title: "Next.js E-Commerce",
     subtitle: "Modern storefront with Stripe checkout & Prisma data engine",
     category: "web",
+    image: "projects/ecommerce.png",
     date: "Live — December 2025",
     description:
       "Modern, ultra-fast online shopping platform powered by Next.js App Router, Prisma ORM, PostgreSQL, and Stripe payment gateway integration.",
@@ -190,6 +185,7 @@ export const PROJECTS: Project[] = [
     title: "React Native Social Media App",
     subtitle: "Cross-platform mobile application with real-time backend",
     category: "mobile",
+    image: "projects/funnygram.jpg",
     date: "Live — September 2025",
     description:
       "Cross-platform mobile social experience built with React Native and Expo, featuring Clerk biometric/social authentication and Convex real-time backend sync.",
