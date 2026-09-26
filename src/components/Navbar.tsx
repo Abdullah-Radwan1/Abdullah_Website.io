@@ -79,95 +79,32 @@ export const Navbar: React.FC<NavbarProps> = () => {
 
   return (
     <header
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        height: "var(--header-height)",
-        display: "flex",
-        alignItems: "center",
-        transition: "all 0.3s ease",
-        backgroundColor: isScrolled
-          ? "rgba(255, 255, 255, 0.92)"
-          : "rgba(250, 250, 252, 0.75)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        borderBottom: isScrolled
-          ? "1px solid var(--border-light)"
-          : "1px solid transparent",
-        boxShadow: isScrolled ? "var(--shadow-sm)" : "none",
-      }}
+      className={`fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center transition-all duration-300 backdrop-blur-md ${
+        isScrolled
+          ? "bg-white/90 border-b border-border-light shadow-sm"
+          : "bg-bg-primary/80 border-b border-transparent"
+      }`}
     >
-      <div
-        className="container"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
+      <div className="w-full max-w-[1200px] mx-auto px-6 flex items-center justify-between">
         {/* Brand Logo */}
         <a
           href="#home"
           onClick={(e) => handleNavClick(e, "#home")}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.75rem",
-            textDecoration: "none",
-            color: "var(--text-primary)",
-            fontWeight: 700,
-            fontSize: "1.125rem",
-            letterSpacing: "-0.02em",
-          }}
+          className="flex items-center gap-3 text-text-primary font-bold text-lg tracking-tight group"
         >
-          <div
-            style={{
-              width: "38px",
-              height: "38px",
-              borderRadius: "10px",
-              background:
-                "linear-gradient(135deg, var(--accent-primary) 0%, #3B82F6 100%)",
-              color: "#FFFFFF",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: 800,
-              fontSize: "1rem",
-              boxShadow: "0 4px 10px rgba(79, 70, 229, 0.25)",
-            }}
-          >
+          <div className="w-[38px] h-[38px] rounded-[10px] bg-gradient-to-br from-accent-primary to-blue-500 text-white flex items-center justify-center font-extrabold text-base shadow-[0_4px_10px_rgba(79,70,229,0.25)] transition-transform duration-200 group-hover:scale-105">
             AR
           </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span>{PERSONAL_INFO.name}</span>
-            <span
-              style={{
-                fontSize: "0.725rem",
-                fontWeight: 500,
-                color: "var(--text-muted)",
-              }}
-            >
+          <div className="flex flex-col">
+            <span className="leading-tight">{PERSONAL_INFO.name}</span>
+            <span className="text-[0.725rem] font-medium text-text-muted leading-tight">
               Software Engineer
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav
-          style={{
-            display: "none",
-            alignItems: "center",
-            gap: "0.5rem",
-            backgroundColor: "var(--bg-secondary)",
-            padding: "0.35rem 0.6rem",
-            borderRadius: "var(--radius-full)",
-            border: "1px solid var(--border-light)",
-          }}
-          className="desktop-nav"
-        >
+        <nav className="hidden md:flex items-center gap-2 bg-bg-secondary px-2.5 py-1.5 rounded-full border border-border-light">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.replace("#", "");
             return (
@@ -175,19 +112,11 @@ export const Navbar: React.FC<NavbarProps> = () => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                style={{
-                  padding: "0.45rem 1rem",
-                  borderRadius: "var(--radius-full)",
-                  fontSize: "0.875rem",
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  transition: "all 0.2s ease",
-                  color: isActive
-                    ? "var(--accent-primary)"
-                    : "var(--text-secondary)",
-                  backgroundColor: isActive ? "#FFFFFF" : "transparent",
-                  boxShadow: isActive ? "var(--shadow-xs)" : "none",
-                }}
+                className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+                  isActive
+                    ? "text-accent-primary bg-white shadow-xs"
+                    : "text-text-secondary hover:text-text-primary bg-transparent"
+                }`}
               >
                 {link.name}
               </a>
@@ -196,40 +125,22 @@ export const Navbar: React.FC<NavbarProps> = () => {
         </nav>
 
         {/* Action Button: Download CV */}
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+        <div className="flex items-center gap-3">
           <a
             href={cvPdf}
             download="Abdullah_Radwan_CV.pdf"
-            className="btn btn-secondary btn-sm"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.4rem",
-              fontWeight: 600,
-              textDecoration: "none",
-            }}
+            className="inline-flex items-center gap-1.5 font-semibold text-sm px-3.5 py-2 rounded-md border border-border-light bg-bg-surface hover:bg-bg-secondary text-text-primary shadow-xs transition-all duration-200 hover:-translate-y-0.5"
             aria-label="Download CV"
           >
-            <FileText size={16} style={{ color: "var(--accent-primary)" }} />
+            <FileText size={16} className="text-accent-primary" />
             <span>Download CV</span>
           </a>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "40px",
-              height: "40px",
-              borderRadius: "var(--radius-md)",
-              border: "1px solid var(--border-light)",
-              backgroundColor: "var(--bg-surface)",
-              color: "var(--text-primary)",
-            }}
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-md border border-border-light bg-bg-surface text-text-primary hover:bg-bg-secondary transition-colors"
             aria-label="Toggle mobile navigation menu"
-            className="mobile-toggle"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -238,78 +149,29 @@ export const Navbar: React.FC<NavbarProps> = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div
-          style={{
-            position: "absolute",
-            top: "var(--header-height)",
-            left: 0,
-            right: 0,
-            backgroundColor: "var(--bg-surface)",
-            borderBottom: "1px solid var(--border-light)",
-            boxShadow: "var(--shadow-lg)",
-            padding: "1.25rem 1.5rem",
-            display: "flex",
-            flexDirection: "column",
-            gap: "0.75rem",
-          }}
-          className="mobile-drawer"
-        >
+        <div className="md:hidden absolute top-[72px] left-0 right-0 bg-bg-surface border-b border-border-light shadow-lg p-5 flex flex-col gap-3 animate-in fade-in slide-in-from-top-2 duration-200">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                padding: "0.75rem 1rem",
-                borderRadius: "var(--radius-md)",
-                color: "var(--text-primary)",
-                fontWeight: 600,
-                fontSize: "0.9375rem",
-                backgroundColor: "var(--bg-secondary)",
-              }}
+              className="flex items-center justify-between p-3 rounded-md text-text-primary font-semibold text-sm bg-bg-secondary hover:bg-bg-tertiary transition-colors"
             >
               <span>{link.name}</span>
-              <ChevronRight size={16} style={{ color: "var(--text-muted)" }} />
+              <ChevronRight size={16} className="text-text-muted" />
             </a>
           ))}
           <a
             href={cvPdf}
             download="Abdullah_Radwan_CV.pdf"
             onClick={() => setMobileMenuOpen(false)}
-            className="btn btn-primary"
-            style={{
-              width: "100%",
-              marginTop: "0.5rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "0.5rem",
-              textDecoration: "none",
-            }}
+            className="w-full mt-2 flex items-center justify-center gap-2 py-3 px-4 rounded-md font-semibold text-white bg-accent-primary hover:bg-accent-hover shadow-sm transition-all duration-200"
           >
             <FileText size={16} />
             <span>Download CV (PDF)</span>
           </a>
         </div>
       )}
-
-      {/* Responsive Inline CSS overrides */}
-      <style>{`
-        @media (min-width: 768px) {
-          .desktop-nav {
-            display: flex !important;
-          }
-          .mobile-toggle {
-            display: none !important;
-          }
-          .mobile-drawer {
-            display: none !important;
-          }
-        }
-      `}</style>
     </header>
   );
 };

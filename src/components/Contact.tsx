@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Mail, Copy, Check, Send, ArrowUpRight, Loader2, AlertCircle } from "lucide-react";
+import {
+  Mail,
+  Copy,
+  Check,
+  Send,
+  ArrowUpRight,
+  Loader2,
+  AlertCircle,
+} from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 import confetti from "canvas-confetti";
 import emailjs from "@emailjs/browser";
@@ -39,7 +47,7 @@ export const Contact: React.FC = () => {
     if (!serviceId || !templateId || !publicKey) {
       setErrorMessage(
         "EmailJS credentials are not configured yet in your .env file. Please set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY, or reach out directly to " +
-          PERSONAL_INFO.email
+          PERSONAL_INFO.email,
       );
       return;
     }
@@ -60,7 +68,7 @@ export const Contact: React.FC = () => {
           message: formData.message,
           reply_to: formData.email,
         },
-        publicKey
+        publicKey,
       );
 
       setSubmitted(true);
@@ -78,7 +86,7 @@ export const Contact: React.FC = () => {
           : null;
       setErrorMessage(
         text ||
-          `Failed to send message. Please try again or reach out directly at ${PERSONAL_INFO.email}`
+          `Failed to send message. Please try again or reach out directly at ${PERSONAL_INFO.email}`,
       );
     } finally {
       setLoading(false);
@@ -86,89 +94,36 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="section"
-      style={{ backgroundColor: "var(--bg-primary)" }}
-    >
-      <div className="container">
+    <section id="contact" className="py-20 bg-bg-primary relative">
+      <div className="w-full max-w-[1200px] mx-auto px-6">
         {/* Section Header */}
-        <div
-          className="section-header"
-          style={{ textAlign: "center", margin: "0 auto 3.5rem auto" }}
-        >
-          <span className="section-title-badge">Get In Touch</span>
-          <h2
-            className="section-title"
-            style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
-          >
+        <div className="text-center mx-auto mb-14 max-w-[680px]">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-accent-light border border-accent-border text-accent-primary text-[0.8125rem] font-semibold rounded-full uppercase tracking-wider mb-4">
+            Get In Touch
+          </span>
+          <h2 className="text-[clamp(2rem,3.5vw,3rem)] font-bold text-text-primary mb-3 leading-tight tracking-tight">
             Let's build something meaningful.
           </h2>
-          <p className="section-subtitle">
+          <p className="text-lg text-text-muted leading-relaxed">
             Whether you have a software engineering opportunity, a contract
             project, or technical inquiries, feel free to reach out.
           </p>
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "0.9fr 1.1fr",
-            gap: "2.5rem",
-            alignItems: "start",
-          }}
-          className="contact-grid"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
           {/* Left Column: Direct Channels */}
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
-          >
+          <div className="flex flex-col gap-5">
             {/* Email Contact Card with Copy Action */}
-            <div
-              className="card"
-              style={{
-                padding: "1.5rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                border: "1.5px solid var(--accent-border)",
-              }}
-            >
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "1rem" }}
-              >
-                <div
-                  style={{
-                    width: "46px",
-                    height: "46px",
-                    borderRadius: "var(--radius-md)",
-                    backgroundColor: "var(--accent-light)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "var(--accent-primary)",
-                  }}
-                >
+            <div className="bg-bg-surface border-[1.5px] border-accent-border rounded-2xl p-6 flex items-center justify-between shadow-sm">
+              <div className="flex items-center gap-4">
+                <div className="w-[46px] h-[46px] rounded-md bg-accent-light flex items-center justify-center text-accent-primary shrink-0">
                   <Mail size={22} />
                 </div>
                 <div>
-                  <span
-                    style={{
-                      fontSize: "0.75rem",
-                      fontWeight: 600,
-                      color: "var(--text-muted)",
-                    }}
-                  >
+                  <span className="text-xs font-semibold text-text-muted">
                     Email Address
                   </span>
-                  <p
-                    style={{
-                      fontSize: "0.9375rem",
-                      fontWeight: 700,
-                      color: "var(--text-primary)",
-                      wordBreak: "break-all",
-                    }}
-                  >
+                  <p className="text-[0.9375rem] font-bold text-text-primary break-all">
                     {PERSONAL_INFO.email}
                   </p>
                 </div>
@@ -176,12 +131,11 @@ export const Contact: React.FC = () => {
 
               <button
                 onClick={handleCopyEmail}
-                className="btn btn-secondary btn-sm"
-                style={{ flexShrink: 0, gap: "0.35rem" }}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-bg-surface border border-border-light text-text-primary hover:bg-bg-secondary hover:border-slate-300 shadow-xs transition-all duration-200 shrink-0 cursor-pointer"
                 title="Copy Email"
               >
                 {copied ? (
-                  <Check size={16} style={{ color: "var(--success-text)" }} />
+                  <Check size={16} className="text-emerald-600" />
                 ) : (
                   <Copy size={16} />
                 )}
@@ -194,54 +148,25 @@ export const Contact: React.FC = () => {
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="card"
-              style={{
-                padding: "1.5rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                textDecoration: "none",
-              }}
+              className="bg-bg-surface border border-border-light rounded-2xl p-6 flex items-center justify-between shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200 no-underline group"
             >
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "1rem" }}
-              >
-                <div
-                  style={{
-                    width: "46px",
-                    height: "46px",
-                    borderRadius: "var(--radius-md)",
-                    backgroundColor: "#EFF6FF",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "#2563EB",
-                  }}
-                >
+              <div className="flex items-center gap-4">
+                <div className="w-[46px] h-[46px] rounded-md bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
                   <LinkedinIcon size={22} />
                 </div>
                 <div>
-                  <span
-                    style={{
-                      fontSize: "0.75rem",
-                      fontWeight: 600,
-                      color: "var(--text-muted)",
-                    }}
-                  >
+                  <span className="text-xs font-semibold text-text-muted">
                     LinkedIn Profile
                   </span>
-                  <p
-                    style={{
-                      fontSize: "0.9375rem",
-                      fontWeight: 700,
-                      color: "var(--text-primary)",
-                    }}
-                  >
+                  <p className="text-[0.9375rem] font-bold text-text-primary">
                     abdullah-radwan
                   </p>
                 </div>
               </div>
-              <ArrowUpRight size={18} style={{ color: "var(--text-muted)" }} />
+              <ArrowUpRight
+                size={18}
+                className="text-text-muted group-hover:text-text-primary transition-colors"
+              />
             </a>
 
             {/* GitHub Card */}
@@ -249,162 +174,62 @@ export const Contact: React.FC = () => {
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="card"
-              style={{
-                padding: "1.5rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                textDecoration: "none",
-              }}
+              className="bg-bg-surface border border-border-light rounded-2xl p-6 flex items-center justify-between shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200 no-underline group"
             >
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "1rem" }}
-              >
-                <div
-                  style={{
-                    width: "46px",
-                    height: "46px",
-                    borderRadius: "var(--radius-md)",
-                    backgroundColor: "var(--bg-secondary)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "var(--text-primary)",
-                  }}
-                >
+              <div className="flex items-center gap-4">
+                <div className="w-[46px] h-[46px] rounded-md bg-bg-secondary flex items-center justify-center text-text-primary shrink-0">
                   <GithubIcon size={22} />
                 </div>
                 <div>
-                  <span
-                    style={{
-                      fontSize: "0.75rem",
-                      fontWeight: 600,
-                      color: "var(--text-muted)",
-                    }}
-                  >
+                  <span className="text-xs font-semibold text-text-muted">
                     GitHub Portfolio
                   </span>
-                  <p
-                    style={{
-                      fontSize: "0.9375rem",
-                      fontWeight: 700,
-                      color: "var(--text-primary)",
-                    }}
-                  >
+                  <p className="text-[0.9375rem] font-bold text-text-primary">
                     abdullah-radwan
                   </p>
                 </div>
               </div>
-              <ArrowUpRight size={18} style={{ color: "var(--text-muted)" }} />
+              <ArrowUpRight
+                size={18}
+                className="text-text-muted group-hover:text-text-primary transition-colors"
+              />
             </a>
           </div>
 
           {/* Right Column: Interactive Quick Message Form */}
-          <div
-            className="card"
-            style={{
-              padding: "2rem",
-              backgroundColor: "#FFFFFF",
-              boxShadow: "var(--shadow-md)",
-            }}
-          >
-            <h3
-              style={{
-                fontSize: "1.25rem",
-                fontWeight: 700,
-                color: "var(--text-primary)",
-                marginBottom: "0.5rem",
-              }}
-            >
+          <div className="bg-white border border-border-light rounded-2xl p-8 shadow-md">
+            <h3 className="text-xl font-bold text-text-primary mb-2">
               Send Direct Message
             </h3>
-            <p
-              style={{
-                fontSize: "0.875rem",
-                color: "var(--text-muted)",
-                marginBottom: "1.5rem",
-              }}
-            >
+            <p className="text-sm text-text-muted mb-6">
               Fill out the details below to dispatch a message directly to
               Abdullah Radwan.
             </p>
 
             {submitted ? (
-              <div
-                style={{
-                  padding: "2rem 1.5rem",
-                  backgroundColor: "var(--success-bg)",
-                  border: "1px solid var(--success-border)",
-                  borderRadius: "var(--radius-md)",
-                  textAlign: "center",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "0.75rem",
-                }}
-              >
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "50%",
-                    backgroundColor: "#FFFFFF",
-                    color: "var(--success-text)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    boxShadow: "var(--shadow-xs)",
-                  }}
-                >
+              <div className="p-8 bg-emerald-50 border border-emerald-200 rounded-xl text-center flex flex-col items-center gap-3 animate-in fade-in duration-300">
+                <div className="w-11 h-11 rounded-full bg-white text-emerald-600 flex items-center justify-center shadow-xs">
                   <Check size={24} />
                 </div>
-                <h4
-                  style={{
-                    fontSize: "1.125rem",
-                    fontWeight: 700,
-                    color: "var(--success-text)",
-                  }}
-                >
+                <h4 className="text-lg font-bold text-emerald-800">
                   Message Sent Successfully!
                 </h4>
-                <p
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "var(--text-secondary)",
-                  }}
-                >
+                <p className="text-sm text-text-secondary max-w-sm">
                   Thank you for reaching out. Abdullah will review your message
                   and reply promptly.
                 </p>
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="btn btn-secondary btn-sm"
-                  style={{ marginTop: "0.5rem" }}
+                  className="mt-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-semibold bg-white border border-border-light text-text-primary hover:bg-bg-secondary shadow-xs transition-colors cursor-pointer"
                 >
                   Send Another Message
                 </button>
               </div>
             ) : (
-              <form
-                onSubmit={handleSubmit}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "1.25rem",
-                }}
-              >
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: "0.8125rem",
-                      fontWeight: 600,
-                      color: "var(--text-secondary)",
-                      marginBottom: "0.35rem",
-                    }}
-                  >
+                  <label className="block text-[0.8125rem] font-semibold text-text-secondary mb-1.5">
                     Your Name
                   </label>
                   <input
@@ -415,29 +240,12 @@ export const Contact: React.FC = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    style={{
-                      width: "100%",
-                      padding: "0.75rem 1rem",
-                      borderRadius: "var(--radius-md)",
-                      border: "1px solid var(--border-light)",
-                      backgroundColor: "var(--bg-primary)",
-                      fontFamily: "var(--font-sans)",
-                      fontSize: "0.9375rem",
-                      outline: "none",
-                    }}
+                    className="w-full px-4 py-3 rounded-md border border-border-light bg-bg-primary font-sans text-[0.9375rem] text-text-primary outline-none focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/20 transition-all"
                   />
                 </div>
 
                 <div>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: "0.8125rem",
-                      fontWeight: 600,
-                      color: "var(--text-secondary)",
-                      marginBottom: "0.35rem",
-                    }}
-                  >
+                  <label className="block text-[0.8125rem] font-semibold text-text-secondary mb-1.5">
                     Your Email Address
                   </label>
                   <input
@@ -448,29 +256,12 @@ export const Contact: React.FC = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    style={{
-                      width: "100%",
-                      padding: "0.75rem 1rem",
-                      borderRadius: "var(--radius-md)",
-                      border: "1px solid var(--border-light)",
-                      backgroundColor: "var(--bg-primary)",
-                      fontFamily: "var(--font-sans)",
-                      fontSize: "0.9375rem",
-                      outline: "none",
-                    }}
+                    className="w-full px-4 py-3 rounded-md border border-border-light bg-bg-primary font-sans text-[0.9375rem] text-text-primary outline-none focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/20 transition-all"
                   />
                 </div>
 
                 <div>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: "0.8125rem",
-                      fontWeight: 600,
-                      color: "var(--text-secondary)",
-                      marginBottom: "0.35rem",
-                    }}
-                  >
+                  <label className="block text-[0.8125rem] font-semibold text-text-secondary mb-1.5">
                     Subject
                   </label>
                   <input
@@ -480,29 +271,12 @@ export const Contact: React.FC = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, subject: e.target.value })
                     }
-                    style={{
-                      width: "100%",
-                      padding: "0.75rem 1rem",
-                      borderRadius: "var(--radius-md)",
-                      border: "1px solid var(--border-light)",
-                      backgroundColor: "var(--bg-primary)",
-                      fontFamily: "var(--font-sans)",
-                      fontSize: "0.9375rem",
-                      outline: "none",
-                    }}
+                    className="w-full px-4 py-3 rounded-md border border-border-light bg-bg-primary font-sans text-[0.9375rem] text-text-primary outline-none focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/20 transition-all"
                   />
                 </div>
 
                 <div>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: "0.8125rem",
-                      fontWeight: 600,
-                      color: "var(--text-secondary)",
-                      marginBottom: "0.35rem",
-                    }}
-                  >
+                  <label className="block text-[0.8125rem] font-semibold text-text-secondary mb-1.5">
                     Message
                   </label>
                   <textarea
@@ -513,36 +287,13 @@ export const Contact: React.FC = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    style={{
-                      width: "100%",
-                      padding: "0.75rem 1rem",
-                      borderRadius: "var(--radius-md)",
-                      border: "1px solid var(--border-light)",
-                      backgroundColor: "var(--bg-primary)",
-                      fontFamily: "var(--font-sans)",
-                      fontSize: "0.9375rem",
-                      outline: "none",
-                      resize: "vertical",
-                    }}
+                    className="w-full px-4 py-3 rounded-md border border-border-light bg-bg-primary font-sans text-[0.9375rem] text-text-primary outline-none focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/20 transition-all resize-y"
                   />
                 </div>
 
                 {errorMessage && (
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "0.5rem",
-                      padding: "0.75rem 1rem",
-                      backgroundColor: "#FEF2F2",
-                      border: "1px solid #FCA5A5",
-                      borderRadius: "var(--radius-md)",
-                      color: "#B91C1C",
-                      fontSize: "0.85rem",
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    <AlertCircle size={18} style={{ flexShrink: 0, marginTop: "2px" }} />
+                  <div className="flex items-start gap-2 p-3 bg-red-50 border border-red-200 rounded-md text-red-700 text-sm leading-relaxed">
+                    <AlertCircle size={18} className="shrink-0 mt-0.5" />
                     <span>{errorMessage}</span>
                   </div>
                 )}
@@ -550,13 +301,7 @@ export const Contact: React.FC = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="btn btn-primary btn-lg"
-                  style={{
-                    width: "100%",
-                    marginTop: "0.5rem",
-                    opacity: loading ? 0.7 : 1,
-                    cursor: loading ? "not-allowed" : "pointer",
-                  }}
+                  className="w-full mt-2 inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold rounded-md bg-accent-primary text-white shadow-sm hover:bg-accent-hover hover:-translate-y-0.5 transition-all duration-200 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <>
@@ -575,21 +320,6 @@ export const Contact: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .animate-spin {
-          animation: spin 1s linear infinite;
-        }
-        @media (max-width: 992px) {
-          .contact-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };

@@ -1,125 +1,54 @@
-import React from 'react';
-import { EDUCATION, LANGUAGES } from '../data/portfolioData';
-import { GraduationCap, Award, Globe, Calendar } from 'lucide-react';
+import React from "react";
+import { EDUCATION, LANGUAGES } from "../data/portfolioData";
+import { GraduationCap, Award, Globe, Calendar } from "lucide-react";
 
 export const EducationLanguages: React.FC = () => {
   return (
-    <section id="education" className="section" style={{ backgroundColor: '#FFFFFF' }}>
-      <div className="container">
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1.2fr 0.8fr',
-            gap: '2.5rem'
-          }}
-          className="edu-lang-grid"
-        >
+    <section id="education" className="py-20 bg-white relative">
+      <div className="w-full max-w-[1200px] mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10">
           {/* Education Card */}
           <div>
-            <div className="section-header" style={{ marginBottom: '1.5rem' }}>
-              <span className="section-title-badge">Academic Background</span>
-              <h2 className="section-title">Education</h2>
+            <div className="mb-6">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-accent-light border border-accent-border text-accent-primary text-[0.8125rem] font-semibold rounded-full uppercase tracking-wider mb-4">
+                Academic Background
+              </span>
+              <h2 className="text-[clamp(1.75rem,2.5vw+1rem,2.5rem)] font-bold text-text-primary leading-tight tracking-tight">
+                Education
+              </h2>
             </div>
 
-            <div
-              className="card"
-              style={{
-                padding: '1.75rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.25rem'
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-                  <div
-                    style={{
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: 'var(--radius-md)',
-                      backgroundColor: 'var(--accent-light)',
-                      border: '1px solid var(--accent-border)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'var(--accent-primary)'
-                    }}
-                  >
+            <div className="bg-bg-surface border border-border-light rounded-2xl p-7 flex flex-col gap-5 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200">
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-12 h-12 rounded-md bg-accent-light border border-accent-border flex items-center justify-center text-accent-primary">
                     <GraduationCap size={26} />
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                    <h3 className="text-xl font-bold text-text-primary">
                       {EDUCATION.degree}
                     </h3>
-                    <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--accent-primary)' }}>
+                    <p className="text-base font-semibold text-accent-primary">
                       {EDUCATION.institution}
                     </p>
                   </div>
                 </div>
 
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    fontSize: '0.8125rem',
-                    fontWeight: 600,
-                    backgroundColor: 'var(--bg-secondary)',
-                    padding: '0.35rem 0.75rem',
-                    borderRadius: 'var(--radius-full)',
-                    border: '1px solid var(--border-light)',
-                    color: 'var(--text-secondary)'
-                  }}
-                >
-                  <Calendar size={14} style={{ color: 'var(--accent-primary)' }} />
+                <div className="inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold bg-bg-secondary px-3 py-1.5 rounded-full border border-border-light text-text-secondary">
+                  <Calendar size={14} className="text-accent-primary" />
                   <span>{EDUCATION.period}</span>
                 </div>
               </div>
 
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '1rem',
-                  paddingTop: '1rem',
-                  borderTop: '1px solid var(--border-light)',
-                  flexWrap: 'wrap'
-                }}
-              >
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    padding: '0.4rem 0.85rem',
-                    backgroundColor: 'var(--success-bg)',
-                    color: 'var(--success-text)',
-                    border: '1px solid var(--success-border)',
-                    borderRadius: 'var(--radius-full)',
-                    fontSize: '0.875rem',
-                    fontWeight: 700
-                  }}
-                >
+              <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-border-light">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full text-sm font-bold">
                   <Award size={16} />
                   <span>{EDUCATION.honors}</span>
                 </div>
 
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    padding: '0.4rem 0.85rem',
-                    backgroundColor: 'var(--bg-secondary)',
-                    color: 'var(--text-primary)',
-                    border: '1px solid var(--border-light)',
-                    borderRadius: 'var(--radius-full)',
-                    fontSize: '0.875rem',
-                    fontWeight: 700
-                  }}
-                >
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-bg-secondary text-text-primary border border-border-light rounded-full text-sm font-bold">
                   <span>Academic Rating:</span>
-                  <span style={{ color: 'var(--accent-primary)' }}>{EDUCATION.gpa}</span>
+                  <span className="text-accent-primary">{EDUCATION.gpa}</span>
                 </div>
               </div>
             </div>
@@ -127,71 +56,41 @@ export const EducationLanguages: React.FC = () => {
 
           {/* Languages Card */}
           <div>
-            <div className="section-header" style={{ marginBottom: '1.5rem' }}>
-              <span className="section-title-badge">Communication</span>
-              <h2 className="section-title">Languages</h2>
+            <div className="mb-6">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-accent-light border border-accent-border text-accent-primary text-[0.8125rem] font-semibold rounded-full uppercase tracking-wider mb-4">
+                Communication
+              </span>
+              <h2 className="text-[clamp(1.75rem,2.5vw+1rem,2.5rem)] font-bold text-text-primary leading-tight tracking-tight">
+                Languages
+              </h2>
             </div>
 
-            <div
-              className="card"
-              style={{
-                padding: '1.75rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.25rem'
-              }}
-            >
+            <div className="bg-bg-surface border border-border-light rounded-2xl p-7 flex flex-col gap-4 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200">
               {LANGUAGES.map((lang) => (
                 <div
                   key={lang.language}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    padding: '1rem',
-                    backgroundColor: 'var(--bg-primary)',
-                    border: '1px solid var(--border-light)',
-                    borderRadius: 'var(--radius-md)'
-                  }}
+                  className="flex items-center justify-between p-4 bg-bg-primary border border-border-light rounded-md"
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <div
-                      style={{
-                        width: '36px',
-                        height: '36px',
-                        borderRadius: '50%',
-                        backgroundColor: '#FFFFFF',
-                        border: '1px solid var(--border-light)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'var(--accent-primary)',
-                        fontWeight: 700,
-                        fontSize: '0.875rem'
-                      }}
-                    >
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-white border border-border-light flex items-center justify-center text-accent-primary font-bold text-sm">
                       <Globe size={18} />
                     </div>
                     <div>
-                      <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                      <h4 className="text-base font-bold text-text-primary">
                         {lang.language}
                       </h4>
-                      <p style={{ fontSize: '0.78125rem', color: 'var(--text-muted)' }}>
+                      <p className="text-[0.78125rem] text-text-muted">
                         {lang.level}
                       </p>
                     </div>
                   </div>
 
                   <span
-                    style={{
-                      padding: '0.3rem 0.75rem',
-                      backgroundColor: lang.proficiency === 'Fluent' ? 'var(--accent-light)' : 'var(--bg-secondary)',
-                      color: lang.proficiency === 'Fluent' ? 'var(--accent-primary)' : 'var(--text-secondary)',
-                      border: `1px solid ${lang.proficiency === 'Fluent' ? 'var(--accent-border)' : 'var(--border-light)'}`,
-                      borderRadius: 'var(--radius-full)',
-                      fontSize: '0.8125rem',
-                      fontWeight: 700
-                    }}
+                    className={`px-3 py-1 text-[0.8125rem] font-bold rounded-full border ${
+                      lang.proficiency === "Fluent"
+                        ? "bg-accent-light text-accent-primary border-accent-border"
+                        : "bg-bg-secondary text-text-secondary border-border-light"
+                    }`}
                   >
                     {lang.proficiency}
                   </span>
@@ -201,14 +100,6 @@ export const EducationLanguages: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 992px) {
-          .edu-lang-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };

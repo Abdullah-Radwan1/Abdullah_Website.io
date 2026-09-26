@@ -1,147 +1,84 @@
-import React from 'react';
-import { EXPERIENCES } from '../data/portfolioData';
-import { Calendar, CheckCircle2, Building } from 'lucide-react';
+import React from "react";
+import { EXPERIENCES } from "../data/portfolioData";
+import { Calendar, CheckCircle2, Building } from "lucide-react";
 
 export const Experience: React.FC = () => {
   return (
-    <section id="experience" className="section" style={{ backgroundColor: '#FFFFFF' }}>
-      <div className="container">
+    <section id="experience" className="py-20 bg-white relative">
+      <div className="w-full max-w-[1200px] mx-auto px-6">
         {/* Section Header */}
-        <div className="section-header">
-          <span className="section-title-badge">Career Track</span>
-          <h2 className="section-title">Engineering Experience</h2>
-          <p className="section-subtitle">
-            Structured development programs and hands-on full-stack training delivering production software and technical leadership.
+        <div className="mb-12 max-w-[680px]">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-accent-light border border-accent-border text-accent-primary text-[0.8125rem] font-semibold rounded-full uppercase tracking-wider mb-4">
+            Career Track
+          </span>
+          <h2 className="text-[clamp(1.75rem,2.5vw+1rem,2.5rem)] font-bold text-text-primary mb-3 leading-tight tracking-tight">
+            Engineering Experience
+          </h2>
+          <p className="text-lg text-text-muted leading-relaxed">
+            Structured development programs and hands-on full-stack training
+            delivering production software and technical leadership.
           </p>
         </div>
 
         {/* Timeline Layout */}
-        <div
-          style={{
-            position: 'relative',
-            maxWidth: '860px',
-            margin: '0 auto',
-            paddingLeft: '2rem'
-          }}
-          className="timeline-container"
-        >
+        <div className="relative max-w-[860px] mx-auto pl-8">
           {/* Vertical Connecting Line */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '0',
-              bottom: '0',
-              left: '7px',
-              width: '2px',
-              backgroundColor: 'var(--border-light)',
-              zIndex: 0
-            }}
-          />
+          <div className="absolute top-0 bottom-0 left-[7px] w-0.5 bg-border-light z-0" />
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+          <div className="flex flex-col gap-10">
             {EXPERIENCES.map((exp) => (
-              <div
-                key={exp.id}
-                style={{
-                  position: 'relative',
-                  zIndex: 1
-                }}
-              >
+              <div key={exp.id} className="relative z-10">
                 {/* Node Bullet Dot */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '6px',
-                    left: '-2rem',
-                    width: '16px',
-                    height: '16px',
-                    borderRadius: '50%',
-                    backgroundColor: '#FFFFFF',
-                    border: '3px solid var(--accent-primary)',
-                    boxShadow: '0 0 0 4px var(--accent-light)'
-                  }}
-                />
+                <div className="absolute top-1.5 -left-8 w-4 h-4 rounded-full bg-white border-[3px] border-accent-primary ring-4 ring-accent-light" />
 
                 {/* Content Card */}
-                <div
-                  className="card"
-                  style={{
-                    padding: '1.75rem',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1rem'
-                  }}
-                >
+                <div className="bg-bg-surface border border-border-light rounded-2xl p-7 flex flex-col gap-4 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200">
                   {/* Card Top Row */}
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      justifyContent: 'space-between',
-                      flexWrap: 'wrap',
-                      gap: '0.75rem',
-                      borderBottom: '1px solid var(--border-light)',
-                      paddingBottom: '1rem'
-                    }}
-                  >
+                  <div className="flex flex-wrap items-start justify-between gap-3 border-b border-border-light pb-4">
                     <div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                      <h3 className="text-xl font-bold text-text-primary">
                         {exp.role}
                       </h3>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--accent-primary)', fontWeight: 600, fontSize: '0.9375rem', marginTop: '0.25rem' }}>
+                      <div className="flex items-center gap-1.5 text-accent-primary font-semibold text-[0.9375rem] mt-1">
                         <Building size={16} />
                         <span>{exp.organization}</span>
                       </div>
                     </div>
 
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.4rem',
-                        fontSize: '0.8125rem',
-                        fontWeight: 600,
-                        backgroundColor: 'var(--bg-secondary)',
-                        padding: '0.35rem 0.75rem',
-                        borderRadius: 'var(--radius-full)',
-                        border: '1px solid var(--border-light)',
-                        color: 'var(--text-secondary)'
-                      }}
-                    >
-                      <Calendar size={14} style={{ color: 'var(--accent-primary)' }} />
+                    <div className="inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold bg-bg-secondary px-3 py-1 rounded-full border border-border-light text-text-secondary">
+                      <Calendar size={14} className="text-accent-primary" />
                       <span>{exp.period}</span>
                     </div>
                   </div>
 
                   {/* Role Overview */}
-                  <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                  <p className="text-[0.9375rem] text-text-secondary leading-relaxed">
                     {exp.description}
                   </p>
 
                   {/* Highlights Bullet points */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <div className="flex flex-col gap-2">
                     {exp.highlights.map((item, idx) => (
                       <div
                         key={idx}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                          gap: '0.5rem',
-                          fontSize: '0.875rem',
-                          color: 'var(--text-primary)',
-                          lineHeight: 1.5
-                        }}
+                        className="flex items-start gap-2 text-sm text-text-primary leading-normal"
                       >
-                        <CheckCircle2 size={16} style={{ color: 'var(--accent-primary)', marginTop: '2px', flexShrink: 0 }} />
+                        <CheckCircle2
+                          size={16}
+                          className="text-accent-primary mt-0.5 shrink-0"
+                        />
                         <span>{item}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Tech Stack Pills */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginTop: '0.5rem' }}>
+                  <div className="flex flex-wrap gap-1.5 mt-2">
                     {exp.technologies.map((tech) => (
-                      <span key={tech} className="badge badge-tech">
+                      <span
+                        key={tech}
+                        className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-mono font-semibold bg-bg-secondary text-text-secondary border border-border-light"
+                      >
                         {tech}
                       </span>
                     ))}

@@ -65,72 +65,21 @@ export const Hero: React.FC<HeroProps> = () => {
   return (
     <section
       id="home"
-      style={{
-        minHeight: "calc(100vh - var(--header-height))",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "6rem 1.5rem",
-        backgroundColor: "var(--bg-primary)",
-        position: "relative",
-        overflow: "hidden",
-        textAlign: "center",
-      }}
+      className="min-h-[calc(100vh-72px)] flex items-center justify-center py-24 px-6 bg-bg-primary relative overflow-hidden text-center"
     >
       {/* Background Glow */}
-      <div
-        style={{
-          position: "absolute",
-          top: "5%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "700px",
-          height: "500px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(79, 70, 229, 0.07) 0%, rgba(250, 250, 252, 0) 70%)",
-          pointerEvents: "none",
-        }}
-      />
+      <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(79,70,229,0.07)_0%,rgba(250,250,252,0)_70%)] pointer-events-none" />
 
-      <div
-        style={{
-          position: "relative",
-          zIndex: 1,
-          width: "100%",
-          maxWidth: "1000px",
-          margin: "0 auto",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <div className="relative z-10 w-full max-w-[1000px] mx-auto flex flex-col items-center">
         {/* Availability */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.6rem",
-            padding: "0.4rem 0.9rem",
-            backgroundColor: "#FFFFFF",
-            border: "1px solid var(--border-light)",
-            borderRadius: "var(--radius-full)",
-            boxShadow: "var(--shadow-xs)",
-            marginBottom: "1.75rem",
-          }}
+          className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-white border border-border-light rounded-full shadow-xs mb-7"
         >
           <span className="pulse-dot" />
-
-          <span
-            style={{
-              fontSize: "0.8125rem",
-              fontWeight: 600,
-              color: "var(--text-secondary)",
-            }}
-          >
+          <span className="text-[0.8125rem] font-semibold text-text-secondary">
             Available for Software Engineering Roles
           </span>
         </motion.div>
@@ -140,14 +89,7 @@ export const Hero: React.FC<HeroProps> = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          style={{
-            fontSize: "0.95rem",
-            fontWeight: 700,
-            color: "var(--accent-primary)",
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            marginBottom: "1rem",
-          }}
+          className="text-[0.95rem] font-bold text-accent-primary tracking-[0.12em] uppercase mb-4"
         >
           {PERSONAL_INFO.role}
         </motion.p>
@@ -155,7 +97,7 @@ export const Hero: React.FC<HeroProps> = () => {
         {/* Main Animated Headline */}
         <AnimatedText
           text="Building scalable, reliable software that solves real problems"
-          className="hero-headline"
+          className="m-0 max-w-[950px] text-text-primary font-extrabold text-[clamp(2.4rem,5.5vw,5rem)] leading-[1.08] tracking-[-0.045em]"
         />
 
         {/* Supporting Text */}
@@ -167,13 +109,7 @@ export const Hero: React.FC<HeroProps> = () => {
             delay: 1.45,
             ease: "easeOut",
           }}
-          style={{
-            maxWidth: "680px",
-            margin: "1.75rem auto 0",
-            fontSize: "1.1rem",
-            lineHeight: 1.7,
-            color: "var(--text-secondary)",
-          }}
+          className="max-w-[680px] mx-auto mt-7 text-[1.1rem] leading-[1.7] text-text-secondary"
         >
           I turn complex requirements into thoughtful, maintainable software
           through strong engineering practices and continuous learning.
@@ -188,17 +124,11 @@ export const Hero: React.FC<HeroProps> = () => {
             delay: 1.65,
             ease: "easeOut",
           }}
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "0.9rem",
-            marginTop: "2.25rem",
-          }}
+          className="flex flex-wrap justify-center gap-3.5 mt-9"
         >
           <button
             onClick={() => handleScrollTo("projects")}
-            className="btn btn-primary btn-lg"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold rounded-md bg-accent-primary text-white shadow-sm hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-4px_rgba(79,70,229,0.25)] transition-all duration-200 cursor-pointer"
           >
             <Code2 size={18} />
             <span>View Projects</span>
@@ -206,7 +136,7 @@ export const Hero: React.FC<HeroProps> = () => {
 
           <button
             onClick={() => handleScrollTo("contact")}
-            className="btn btn-secondary btn-lg"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold rounded-md bg-bg-surface border border-border-light text-text-primary shadow-xs hover:bg-bg-secondary hover:border-slate-300 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
           >
             <Mail size={18} />
             <span>Contact Me</span>
@@ -215,32 +145,13 @@ export const Hero: React.FC<HeroProps> = () => {
           <a
             href={cvPdf}
             download="Abdullah_Radwan_CV.pdf"
-            className="btn btn-outline btn-lg"
-            style={{ textDecoration: "none" }}
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold rounded-md bg-transparent border border-accent-border text-accent-primary hover:bg-accent-light hover:text-accent-hover transition-all duration-200 no-underline hover:-translate-y-0.5"
           >
             <FileText size={18} />
             <span>Download CV</span>
           </a>
         </motion.div>
       </div>
-
-      <style>{`
-        .hero-headline {
-          margin: 0;
-          max-width: 950px;
-          color: var(--text-primary);
-          font-weight: 800;
-          font-size: clamp(2.75rem, 6vw, 5rem);
-          line-height: 1.08;
-          letter-spacing: -0.045em;
-        }
-
-        @media (max-width: 640px) {
-          .hero-headline {
-            font-size: clamp(2.4rem, 12vw, 3.5rem);
-          }
-        }
-      `}</style>
     </section>
   );
 };

@@ -1,102 +1,62 @@
-import React from 'react';
-import { SKILL_CATEGORIES } from '../data/portfolioData';
-import { Layout, Database, Terminal, GitBranch, Check } from 'lucide-react';
+import React from "react";
+import { SKILL_CATEGORIES } from "../data/portfolioData";
+import { Layout, Database, Terminal, GitBranch, Check } from "lucide-react";
 
 export const Skills: React.FC = () => {
   const iconMap: Record<string, React.ReactNode> = {
-    Layout: <Layout size={22} style={{ color: 'var(--accent-primary)' }} />,
-    Database: <Database size={22} style={{ color: '#2563EB' }} />,
-    Terminal: <Terminal size={22} style={{ color: '#7C3AED' }} />,
-    GitBranch: <GitBranch size={22} style={{ color: '#059669' }} />
+    Layout: <Layout size={22} className="text-accent-primary" />,
+    Database: <Database size={22} className="text-blue-600" />,
+    Terminal: <Terminal size={22} className="text-purple-600" />,
+    GitBranch: <GitBranch size={22} className="text-emerald-600" />,
   };
 
   return (
-    <section id="skills" className="section" style={{ backgroundColor: 'var(--bg-primary)' }}>
-      <div className="container">
+    <section id="skills" className="py-20 bg-bg-primary relative">
+      <div className="w-full max-w-[1200px] mx-auto px-6">
         {/* Section Header */}
-        <div className="section-header">
-          <span className="section-title-badge">Technical Stack</span>
-          <h2 className="section-title">Skills & Competencies</h2>
-          <p className="section-subtitle">
-            A comprehensive overview of production technologies, databases, engineering practices, and developer tooling.
+        <div className="mb-12 max-w-[680px]">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-accent-light border border-accent-border text-accent-primary text-[0.8125rem] font-semibold rounded-full uppercase tracking-wider mb-4">
+            Technical Stack
+          </span>
+          <h2 className="text-[clamp(1.75rem,2.5vw+1rem,2.5rem)] font-bold text-text-primary mb-3 leading-tight tracking-tight">
+            Skills & Competencies
+          </h2>
+          <p className="text-lg text-text-muted leading-relaxed">
+            A comprehensive overview of production technologies, databases,
+            engineering practices, and developer tooling.
           </p>
         </div>
 
         {/* 4 Skill Category Cards Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '1.75rem'
-          }}
-          className="skills-grid"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
           {SKILL_CATEGORIES.map((cat) => (
             <div
               key={cat.title}
-              className="card"
-              style={{
-                padding: '1.75rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.25rem'
-              }}
+              className="bg-bg-surface border border-border-light rounded-2xl p-7 flex flex-col gap-5 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200"
             >
               {/* Category Header */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-                <div
-                  style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: 'var(--radius-md)',
-                    backgroundColor: 'var(--bg-secondary)',
-                    border: '1px solid var(--border-light)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                >
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-md bg-bg-secondary border border-border-light flex items-center justify-center">
                   {iconMap[cat.iconName]}
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                  <h3 className="text-lg font-bold text-text-primary">
                     {cat.title}
                   </h3>
-                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
+                  <p className="text-[0.8125rem] text-text-muted">
                     {cat.description}
                   </p>
                 </div>
               </div>
 
               {/* Skill Badges List */}
-              <div
-                style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '0.5rem',
-                  paddingTop: '0.5rem',
-                  borderTop: '1px solid var(--border-light)'
-                }}
-              >
+              <div className="flex flex-wrap gap-2 pt-3 border-t border-border-light">
                 {cat.skills.map((skill) => (
                   <div
                     key={skill}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.4rem',
-                      padding: '0.45rem 0.85rem',
-                      backgroundColor: '#FFFFFF',
-                      border: '1px solid var(--border-light)',
-                      borderRadius: 'var(--radius-md)',
-                      fontSize: '0.875rem',
-                      fontWeight: 600,
-                      color: 'var(--text-primary)',
-                      boxShadow: 'var(--shadow-xs)',
-                      transition: 'all 0.2s ease'
-                    }}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-white border border-border-light rounded-md text-sm font-semibold text-text-primary shadow-xs hover:border-accent-border hover:text-accent-primary transition-all duration-200"
                   >
-                    <Check size={14} style={{ color: 'var(--accent-primary)' }} />
+                    <Check size={14} className="text-accent-primary" />
                     <span>{skill}</span>
                   </div>
                 ))}
@@ -105,14 +65,6 @@ export const Skills: React.FC = () => {
           ))}
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 992px) {
-          .skills-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };

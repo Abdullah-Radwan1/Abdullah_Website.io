@@ -10,14 +10,12 @@ import { Footer } from "./components/Footer";
 
 export function App() {
   return (
-    <div
-      style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
-    >
+    <div className="min-h-screen flex flex-col bg-bg-primary text-text-primary">
       {/* Navigation Header */}
       <Navbar />
 
       {/* Main Content Sections */}
-      <main style={{ flex: 1 }}>
+      <main className="flex-1">
         <Hero />
         <About />
         <Projects />

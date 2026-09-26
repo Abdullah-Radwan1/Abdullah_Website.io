@@ -1,62 +1,56 @@
-import React, { useState } from 'react';
-import { PROJECTS } from '../data/portfolioData';
-import { ProjectCard } from './ProjectCard';
-import { ProjectModal } from './ProjectModal';
-import type { Project } from '../types';
+import React, { useState } from "react";
+import { PROJECTS } from "../data/portfolioData";
+import { ProjectCard } from "./ProjectCard";
+import { ProjectModal } from "./ProjectModal";
+import type { Project } from "../types";
 
 export const Projects: React.FC = () => {
-  const [selectedFilter, setSelectedFilter] = useState<'all' | 'saas' | 'web' | 'mobile'>('all');
-  const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
+  const [selectedFilter, setSelectedFilter] = useState<
+    "all" | "saas" | "web" | "mobile"
+  >("all");
+  const [activeModalProject, setActiveModalProject] = useState<Project | null>(
+    null,
+  );
 
   const filteredProjects = PROJECTS.filter((proj) => {
-    if (selectedFilter === 'all') return true;
+    if (selectedFilter === "all") return true;
     return proj.category === selectedFilter;
   });
 
   return (
-    <section id="projects" className="section" style={{ backgroundColor: 'var(--bg-primary)' }}>
-      <div className="container">
+    <section id="projects" className="py-20 bg-bg-primary relative">
+      <div className="w-full max-w-[1200px] mx-auto px-6">
         {/* Section Header */}
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '2.5rem', flexWrap: 'wrap', gap: '1.5rem' }}>
+        <div className="flex flex-wrap items-end justify-between mb-10 gap-6">
           <div>
-            <span className="section-title-badge">Featured Projects</span>
-            <h2 className="section-title">Production Software Systems</h2>
-            <p className="section-subtitle">
-              Full-stack applications engineered for performance, clean architecture, and practical real-world impact.
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-accent-light border border-accent-border text-accent-primary text-[0.8125rem] font-semibold rounded-full uppercase tracking-wider mb-4">
+              Featured Projects
+            </span>
+            <h2 className="text-[clamp(1.75rem,2.5vw+1rem,2.5rem)] font-bold text-text-primary mb-3 leading-tight tracking-tight">
+              Production Software Systems
+            </h2>
+            <p className="text-lg text-text-muted leading-relaxed max-w-xl">
+              Full-stack applications engineered for performance, clean
+              architecture, and practical real-world impact.
             </p>
           </div>
 
           {/* Category Filter Tabs */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.35rem',
-              backgroundColor: '#FFFFFF',
-              border: '1px solid var(--border-light)',
-              borderRadius: 'var(--radius-full)',
-              padding: '0.35rem',
-              boxShadow: 'var(--shadow-xs)'
-            }}
-          >
+          <div className="flex items-center gap-1.5 bg-white border border-border-light rounded-full p-1.5 shadow-xs">
             {[
-              { id: 'all', label: 'All Projects' },
-              { id: 'saas', label: 'AI & SaaS' },
-              { id: 'web', label: 'Web Systems' },
-              { id: 'mobile', label: 'Mobile Apps' }
+              { id: "all", label: "All Projects" },
+              { id: "saas", label: "AI & SaaS" },
+              { id: "web", label: "Web Systems" },
+              { id: "mobile", label: "Mobile Apps" },
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setSelectedFilter(tab.id as any)}
-                style={{
-                  padding: '0.45rem 0.95rem',
-                  borderRadius: 'var(--radius-full)',
-                  fontSize: '0.8125rem',
-                  fontWeight: 600,
-                  transition: 'all 0.2s ease',
-                  backgroundColor: selectedFilter === tab.id ? 'var(--accent-primary)' : 'transparent',
-                  color: selectedFilter === tab.id ? '#FFFFFF' : 'var(--text-secondary)'
-                }}
+                className={`px-4 py-2 rounded-full text-xs sm:text-[0.8125rem] font-semibold transition-all duration-200 cursor-pointer ${
+                  selectedFilter === tab.id
+                    ? "bg-accent-primary text-white shadow-xs"
+                    : "bg-transparent text-text-secondary hover:text-text-primary"
+                }`}
               >
                 {tab.label}
               </button>
@@ -65,14 +59,7 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* Grid of Projects */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '2rem'
-          }}
-          className="projects-grid"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredProjects.map((project) => (
             <ProjectCard
               key={project.id}
@@ -88,14 +75,6 @@ export const Projects: React.FC = () => {
         project={activeModalProject}
         onClose={() => setActiveModalProject(null)}
       />
-
-      <style>{`
-        @media (max-width: 992px) {
-          .projects-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };

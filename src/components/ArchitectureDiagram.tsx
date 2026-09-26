@@ -1,97 +1,80 @@
-import React, { useState } from 'react';
-import { Layers, Database, Cpu, Server, ShieldCheck, Zap, CheckCircle2 } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  Layers,
+  Database,
+  Cpu,
+  Server,
+  ShieldCheck,
+  Zap,
+  CheckCircle2,
+} from "lucide-react";
 
 export const ArchitectureDiagram: React.FC = () => {
-  const [activeNode, setActiveNode] = useState<string>('nestjs-api');
+  const [activeNode, setActiveNode] = useState<string>("nestjs-api");
 
   const nodes = [
     {
-      id: 'frontend-clients',
-      title: 'Frontend Tier',
-      tech: 'React 19 • Next.js • Angular • React Native',
-      desc: 'High-performance SPAs & SSR mobile interfaces with 95%+ Lighthouse rating & responsive state management (Redux/Zustand).',
-      badge: 'Client Layer',
+      id: "frontend-clients",
+      title: "Frontend Tier",
+      tech: "React 19 • Next.js • Angular • React Native",
+      desc: "High-performance SPAs & SSR mobile interfaces with 95%+ Lighthouse rating & responsive state management (Redux/Zustand).",
+      badge: "Client Layer",
       icon: Layers,
-      color: '#4F46E5'
+      color: "text-accent-primary",
     },
     {
-      id: 'nestjs-api',
-      title: 'NestJS REST & Gateway',
-      tech: 'NestJS • Node.js • TypeScript • JWT',
-      desc: 'Modular controllers, dependency injection, custom RBAC guards, and error handling middleware for enterprise reliability.',
-      badge: 'Core Service',
+      id: "nestjs-api",
+      title: "NestJS REST & Gateway",
+      tech: "NestJS • Node.js • TypeScript • JWT",
+      desc: "Modular controllers, dependency injection, custom RBAC guards, and error handling middleware for enterprise reliability.",
+      badge: "Core Service",
       icon: Server,
-      color: '#2563EB'
+      color: "text-blue-600",
     },
     {
-      id: 'ai-engine',
-      title: 'AI Processing Engine',
-      tech: 'Open Router AI • Document Indexer',
-      desc: 'Automated PDF parsing, risk score evaluation, compliance checks, and quota metering.',
-      badge: 'SaaS AI Pipeline',
+      id: "ai-engine",
+      title: "AI Processing Engine",
+      tech: "Open Router AI • Document Indexer",
+      desc: "Automated PDF parsing, risk score evaluation, compliance checks, and quota metering.",
+      badge: "SaaS AI Pipeline",
       icon: Cpu,
-      color: '#7C3AED'
+      color: "text-purple-600",
     },
     {
-      id: 'db-layer',
-      title: 'ORM & Data Persistence',
-      tech: 'PostgreSQL • Prisma • Drizzle • Neon DB',
-      desc: 'Type-safe SQL schema design, migrations, indexing, and real-time subscription sync (Convex & MongoDB).',
-      badge: 'Database Layer',
+      id: "db-layer",
+      title: "ORM & Data Persistence",
+      tech: "PostgreSQL • Prisma • Drizzle • Neon DB",
+      desc: "Type-safe SQL schema design, migrations, indexing, and real-time subscription sync (Convex & MongoDB).",
+      badge: "Database Layer",
       icon: Database,
-      color: '#059669'
-    }
+      color: "text-emerald-600",
+    },
   ];
 
-  const selected = nodes.find(n => n.id === activeNode) || nodes[1];
+  const selected = nodes.find((n) => n.id === activeNode) || nodes[1];
 
   return (
-    <div
-      style={{
-        backgroundColor: '#FFFFFF',
-        border: '1px solid var(--border-light)',
-        borderRadius: 'var(--radius-xl)',
-        padding: '1.75rem',
-        boxShadow: 'var(--shadow-lg), 0 1px 3px rgba(15,23,42,0.02)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}
-    >
+    <div className="bg-white border border-border-light rounded-3xl p-7 shadow-lg relative overflow-hidden">
       {/* Visual Header */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-          <div
-            style={{
-              width: '10px',
-              height: '10px',
-              borderRadius: '50%',
-              backgroundColor: '#10B981',
-              boxShadow: '0 0 10px rgba(16,185,129,0.5)'
-            }}
-          />
-          <span style={{ fontSize: '0.8125rem', fontFamily: 'var(--font-mono)', fontWeight: 600, color: 'var(--text-secondary)' }}>
+      <div className="flex items-center justify-between mb-5">
+        <div className="flex items-center gap-2.5">
+          <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+          <span className="text-[0.8125rem] font-mono font-semibold text-text-secondary">
             SYSTEM_ARCHITECTURE.v26.1
           </span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-          <span className="badge badge-tech" style={{ fontSize: '0.7rem' }}>
+        <div className="flex items-center gap-1.5">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[0.7rem] font-mono font-semibold bg-bg-secondary text-text-secondary border border-border-light">
             Clean Architecture
           </span>
-          <span className="badge badge-live" style={{ fontSize: '0.7rem' }}>
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.7rem] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
             <Zap size={10} /> Active
           </span>
         </div>
       </div>
 
       {/* Nodes Connection Canvas Diagram */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '1rem',
-          position: 'relative'
-        }}
-      >
+      <div className="grid grid-cols-2 gap-4 relative">
         {nodes.map((node) => {
           const Icon = node.icon;
           const isActive = activeNode === node.id;
@@ -99,50 +82,34 @@ export const ArchitectureDiagram: React.FC = () => {
             <div
               key={node.id}
               onClick={() => setActiveNode(node.id)}
-              style={{
-                backgroundColor: isActive ? 'var(--accent-light)' : 'var(--bg-primary)',
-                border: `1.5px solid ${isActive ? 'var(--accent-primary)' : 'var(--border-light)'}`,
-                borderRadius: 'var(--radius-md)',
-                padding: '1rem',
-                cursor: 'pointer',
-                transition: 'all 0.25s ease',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.5rem',
-                boxShadow: isActive ? '0 4px 12px rgba(79, 70, 229, 0.12)' : 'none'
-              }}
+              className={`p-4 rounded-lg cursor-pointer transition-all duration-200 flex flex-col gap-2 ${
+                isActive
+                  ? "bg-accent-light border-[1.5px] border-accent-primary shadow-[0_4px_12px_rgba(79,70,229,0.12)]"
+                  : "bg-bg-primary border-[1.5px] border-border-light hover:border-slate-300"
+              }`}
             >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div className="flex items-center justify-between">
                 <div
-                  style={{
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: 'var(--radius-sm)',
-                    backgroundColor: isActive ? 'var(--accent-primary)' : '#FFFFFF',
-                    color: isActive ? '#FFFFFF' : node.color,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    boxShadow: 'var(--shadow-xs)'
-                  }}
+                  className={`w-8 h-8 rounded-md flex items-center justify-center shadow-xs ${
+                    isActive
+                      ? "bg-accent-primary text-white"
+                      : `bg-white ${node.color}`
+                  }`}
                 >
                   <Icon size={16} />
                 </div>
                 <span
-                  style={{
-                    fontSize: '0.7rem',
-                    fontFamily: 'var(--font-mono)',
-                    fontWeight: 600,
-                    color: isActive ? 'var(--accent-primary)' : 'var(--text-muted)'
-                  }}
+                  className={`text-[0.7rem] font-mono font-semibold ${
+                    isActive ? "text-accent-primary" : "text-text-muted"
+                  }`}
                 >
                   {node.badge}
                 </span>
               </div>
-              <h4 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+              <h4 className="text-[0.9375rem] font-bold text-text-primary">
                 {node.title}
               </h4>
-              <p style={{ fontSize: '0.78125rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
+              <p className="text-[0.78125rem] text-text-secondary font-mono">
                 {node.tech}
               </p>
             </div>
@@ -151,35 +118,24 @@ export const ArchitectureDiagram: React.FC = () => {
       </div>
 
       {/* Selected Node Inspector Detail Card */}
-      <div
-        style={{
-          marginTop: '1.25rem',
-          backgroundColor: 'var(--bg-secondary)',
-          border: '1px solid var(--border-light)',
-          borderRadius: 'var(--radius-md)',
-          padding: '1rem 1.25rem',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '0.5rem'
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <ShieldCheck size={16} style={{ color: 'var(--accent-primary)' }} />
-          <span style={{ fontSize: '0.84375rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+      <div className="mt-5 bg-bg-secondary border border-border-light rounded-lg p-4 flex flex-col gap-2">
+        <div className="flex items-center gap-2">
+          <ShieldCheck size={16} className="text-accent-primary" />
+          <span className="text-[0.84375rem] font-bold text-text-primary">
             Architecture Strategy: {selected.title}
           </span>
         </div>
-        <p style={{ fontSize: '0.84375rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+        <p className="text-[0.84375rem] text-text-secondary leading-normal">
           {selected.desc}
         </p>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '0.25rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem', color: 'var(--success-text)', fontWeight: 600 }}>
+        <div className="flex flex-wrap items-center gap-4 mt-1">
+          <div className="flex items-center gap-1 text-xs text-emerald-700 font-semibold">
             <CheckCircle2 size={13} /> Strict Typing
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem', color: 'var(--accent-primary)', fontWeight: 600 }}>
+          <div className="flex items-center gap-1 text-xs text-accent-primary font-semibold">
             <CheckCircle2 size={13} /> Zero Latency Overhead
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+          <div className="flex items-center gap-1 text-xs text-text-muted font-semibold">
             <CheckCircle2 size={13} /> Modular Micro-services
           </div>
         </div>

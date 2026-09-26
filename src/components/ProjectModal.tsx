@@ -1,153 +1,93 @@
-import React from 'react';
-import { X, ExternalLink, CheckCircle2, Zap } from 'lucide-react';
-import { GithubIcon } from './Icons';
-import type { Project } from '../types';
+import React from "react";
+import { X, ExternalLink, CheckCircle2, Zap } from "lucide-react";
+import { GithubIcon } from "./Icons";
+import type { Project } from "../types";
 
 interface ProjectModalProps {
   project: Project | null;
   onClose: () => void;
 }
 
-export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+export const ProjectModal: React.FC<ProjectModalProps> = ({
+  project,
+  onClose,
+}) => {
   if (!project) return null;
 
   return (
     <div
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 200,
-        backgroundColor: 'rgba(15, 23, 42, 0.65)',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '1.5rem',
-        animation: 'fadeIn 0.2s ease-out'
-      }}
+      className="fixed inset-0 z-50 bg-slate-900/65 backdrop-blur-sm flex items-center justify-center p-6"
       onClick={onClose}
     >
       <div
-        style={{
-          backgroundColor: '#FFFFFF',
-          border: '1px solid var(--border-light)',
-          borderRadius: 'var(--radius-xl)',
-          maxWidth: '780px',
-          width: '100%',
-          maxHeight: '90vh',
-          overflowY: 'auto',
-          boxShadow: 'var(--shadow-xl)',
-          position: 'relative',
-          padding: '2rem'
-        }}
+        className="bg-white border border-border-light rounded-3xl max-w-[780px] w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-8"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          style={{
-            position: 'absolute',
-            top: '1.25rem',
-            right: '1.25rem',
-            width: '36px',
-            height: '36px',
-            borderRadius: '50%',
-            backgroundColor: 'var(--bg-secondary)',
-            border: '1px solid var(--border-light)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'var(--text-secondary)',
-            cursor: 'pointer',
-            transition: 'all 0.2s ease'
-          }}
+          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-bg-secondary border border-border-light flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X size={18} />
         </button>
 
         {/* Modal Top Badges */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
-          <span className="badge badge-live">
+        <div className="flex items-center gap-2.5 mb-3">
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
             <Zap size={12} /> {project.date}
           </span>
           {project.isFeatured && (
-            <span className="badge" style={{ backgroundColor: 'var(--accent-light)', color: 'var(--accent-primary)', border: '1px solid var(--accent-border)' }}>
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-full bg-accent-light text-accent-primary border border-accent-border">
               ★ Featured Flagship System
             </span>
           )}
         </div>
 
         {/* Title */}
-        <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.35rem' }}>
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-text-primary mb-1.5">
           {project.title}
         </h2>
-        <p style={{ fontSize: '1rem', color: 'var(--accent-primary)', fontWeight: 600, marginBottom: '1.25rem' }}>
+        <p className="text-base text-accent-primary font-semibold mb-5">
           {project.subtitle}
         </p>
 
         {/* Project Screenshot in Modal */}
         {project.image && (
-          <div
-            style={{
-              width: '100%',
-              borderRadius: 'var(--radius-md)',
-              overflow: 'hidden',
-              marginBottom: '1.5rem',
-              border: '1px solid var(--border-light)',
-              backgroundColor: 'var(--bg-secondary)',
-              aspectRatio: '16 / 9'
-            }}
-          >
+          <div className="w-full rounded-xl overflow-hidden mb-6 border border-border-light bg-bg-secondary aspect-video">
             <img
-              src={`${import.meta.env.BASE_URL}${project.image.replace(/^\//, '')}`}
+              src={`${import.meta.env.BASE_URL}${project.image.replace(/^\//, "")}`}
               alt={project.title}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                display: 'block'
-              }}
+              className="w-full h-full object-cover block"
             />
           </div>
         )}
 
         {/* Description */}
-        <div style={{ marginBottom: '1.5rem' }}>
-          <h4 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+        <div className="mb-6">
+          <h4 className="text-sm font-bold text-text-primary mb-2">
             System Description & Overview
           </h4>
-          <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+          <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
             {project.longDescription}
           </p>
         </div>
 
         {/* Core Features List */}
-        <div style={{ marginBottom: '1.5rem' }}>
-          <h4 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.75rem' }}>
+        <div className="mb-6">
+          <h4 className="text-sm font-bold text-text-primary mb-3">
             Key Implemented Features
           </h4>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '0.5rem' }}>
+          <div className="grid grid-cols-1 gap-2">
             {project.features.map((feat, idx) => (
               <div
                 key={idx}
-                style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '0.5rem',
-                  padding: '0.55rem 0.75rem',
-                  backgroundColor: 'var(--bg-primary)',
-                  borderRadius: 'var(--radius-sm)',
-                  border: '1px solid var(--border-light)',
-                  fontSize: '0.875rem',
-                  color: 'var(--text-primary)'
-                }}
+                className="flex items-start gap-2 p-2.5 bg-bg-primary rounded-md border border-border-light text-sm text-text-primary font-medium"
               >
-                <CheckCircle2 size={16} style={{ color: 'var(--accent-primary)', marginTop: '2px', flexShrink: 0 }} />
+                <CheckCircle2
+                  size={16}
+                  className="text-accent-primary mt-0.5 shrink-0"
+                />
                 <span>{feat}</span>
               </div>
             ))}
@@ -156,16 +96,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Architecture Notes */}
         {project.architectureNotes && (
-          <div style={{ marginBottom: '1.5rem' }}>
-            <h4 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+          <div className="mb-6">
+            <h4 className="text-sm font-bold text-text-primary mb-2">
               Architecture & Engineering Implementation
             </h4>
-            <div style={{ backgroundColor: '#0F172A', color: '#F8FAFC', padding: '1rem', borderRadius: 'var(--radius-md)', fontFamily: 'var(--font-mono)', fontSize: '0.8125rem' }}>
-              <div style={{ color: '#818CF8', marginBottom: '0.5rem', fontWeight: 600 }}>
+            <div className="bg-slate-900 text-slate-100 p-4 rounded-xl font-mono text-xs sm:text-sm">
+              <div className="text-indigo-400 mb-2 font-semibold">
                 // Engineering Strategy Highlights
               </div>
               {project.architectureNotes.map((note, i) => (
-                <div key={i} style={{ marginBottom: '0.35rem', lineHeight: 1.5 }}>
+                <div key={i} className="mb-1 leading-relaxed">
                   ➜ {note}
                 </div>
               ))}
@@ -174,13 +114,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         )}
 
         {/* Tech Badges */}
-        <div style={{ marginBottom: '1.75rem' }}>
-          <h4 style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.6rem' }}>
+        <div className="mb-7">
+          <h4 className="text-xs font-bold text-text-muted uppercase tracking-wider mb-2.5">
             Technology Stack
           </h4>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+          <div className="flex flex-wrap gap-1.5">
             {project.technologies.map((tech) => (
-              <span key={tech} className="badge badge-tech" style={{ padding: '0.35rem 0.75rem', fontSize: '0.8125rem' }}>
+              <span
+                key={tech}
+                className="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-semibold bg-bg-secondary text-text-secondary border border-border-light"
+              >
                 {tech}
               </span>
             ))}
@@ -188,24 +131,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         {/* Modal Footer CTAs */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            paddingTop: '1.25rem',
-            borderTop: '1px solid var(--border-light)',
-            flexWrap: 'wrap',
-            gap: '1rem'
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <div className="flex flex-wrap items-center justify-between pt-5 border-t border-border-light gap-4">
+          <div className="flex items-center gap-3">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary btn-sm"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-semibold bg-accent-primary text-white hover:bg-accent-hover shadow-sm transition-all duration-200 hover:-translate-y-0.5"
               >
                 <ExternalLink size={16} />
                 <span>Live Demo</span>
@@ -216,14 +149,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-secondary btn-sm"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-semibold bg-bg-surface border border-border-light text-text-primary hover:bg-bg-secondary hover:border-slate-300 shadow-xs transition-all duration-200 hover:-translate-y-0.5"
               >
                 <GithubIcon size={16} />
                 <span>GitHub Repository</span>
               </a>
             )}
           </div>
-          <button onClick={onClose} className="btn btn-outline btn-sm">
+          <button
+            onClick={onClose}
+            className="px-4 py-2 rounded-md text-sm font-semibold border border-accent-border text-accent-primary hover:bg-accent-light transition-all duration-200 cursor-pointer"
+          >
             Close Preview
           </button>
         </div>
