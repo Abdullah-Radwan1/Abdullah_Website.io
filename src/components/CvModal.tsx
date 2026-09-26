@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, Printer, Copy, Check, FileText } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { PERSONAL_INFO, PROJECTS, EXPERIENCES, SKILL_CATEGORIES, EDUCATION, LANGUAGES } from '../data/portfolioData';
+import cvPdf from '../assets/AbdullahCV.pdf';
 
 interface CvModalProps {
   isOpen: boolean;
@@ -113,13 +114,29 @@ ${LANGUAGES.map(l => `${l.language} (${l.proficiency})`).join(', ')}
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <a
+              href={cvPdf}
+              download="Abdullah_Radwan_CV.pdf"
+              className="btn btn-primary btn-sm"
+              title="Download Original PDF"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                textDecoration: 'none'
+              }}
+            >
+              <FileText size={16} />
+              <span>Download PDF</span>
+            </a>
+
             <button
               onClick={handlePrint}
               className="btn btn-secondary btn-sm"
               title="Print CV Document"
             >
               <Printer size={16} />
-              <span>Print / Save PDF</span>
+              <span>Print</span>
             </button>
 
             <button
