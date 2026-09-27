@@ -1,138 +1,12 @@
 @import "tailwindcss";
 
-/* ==========================================================================
-   PRIMARY 5-COLOR PALETTE
-   Modify these 5 hex codes anytime to change the theme across the whole website!
-   1. e63946: Vibrant Red/Coral Accent
-   2. f1faee: Soft Cream Canvas Background
-   3. a8dadc: Soft Aqua Blue / Accent Surface & Subtle Borders
-   4. 457b9d: Steel Ocean Blue / Secondary Accent, Subtitles & Badges
-   5. 1d3557: Prussian Navy Blue / Deep Main Text, Headings & Primary Elements
-   ========================================================================== */
-:root {
-  /* ==========================================================================
-     PRIMARY 5-COLOR PALETTE
-     Modify these 5 hex codes anytime to instantly retheme the whole website!
-     1. #3d348b: Deep Royal Indigo (Headings, Main Text & Dark Accents)
-     2. #7678ed: Iris Purple (Secondary Accent, Badges, Subheadings, Focus)
-     3. #f7b801: Warm Gold / Amber (Highlights, Star Badges, Warning/Honor status)
-     4. #f18701: Tangerine Orange (Secondary Action, Interactive Hover Glows)
-     5. #f35b04: Flame Red-Orange (Primary Accent, Main CTAs, Pulse dots)
-     ========================================================================== */
-  --palette-color-1: #3d348b;
-  --palette-color-2: #7678ed;
-  --palette-color-3: #f7b801;
-  --palette-color-4: #f18701;
-  --palette-color-5: #f35b04;
-
-  /* Aliases for easy named usage */
-  --palette-indigo: var(--palette-color-1);
-  --palette-iris: var(--palette-color-2);
-  --palette-gold: var(--palette-color-3);
-  --palette-orange: var(--palette-color-4);
-  --palette-flame: var(--palette-color-5);
-
-  /* Compatibility bindings */
-  --palette-navy: var(--palette-color-1);
-  --palette-steel-blue: var(--palette-color-2);
-  --palette-light-blue: #EAE9FB;
-  --palette-cream: #F8F7FD;
-  --palette-red: var(--palette-color-5);
-
-  /* Semantic UI Design Tokens */
-  --bg-primary: #F8F7FD;
-  --bg-surface: #FFFFFF;
-  --bg-secondary: #F0EFFB;
-  --bg-tertiary: #E5E3F9;
-
-  --text-primary: var(--palette-color-1);
-  --text-secondary: #484175;
-  --text-muted: #6B6496;
-  --text-light: #948DBB;
-
-  --accent-primary: var(--palette-color-5);
-  --accent-hover: var(--palette-color-4);
-  --accent-light: #FFF0E8;
-  --accent-border: #FED1BE;
-
-  --accent-secondary: var(--palette-color-2);
-  --accent-secondary-hover: var(--palette-color-1);
-  --accent-secondary-light: #F2F2FD;
-
-  --border-light: #E5E3F4;
-  --border-subtle: #F1EFF9;
-  --border-focus: var(--palette-color-2);
-
-  --font-sans:
-    "Inter", "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, sans-serif;
-  --font-heading: "Plus Jakarta Sans", "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius-full: 9999px;
-
-  --shadow-xs: 0 1px 2px 0 rgba(61, 52, 139, 0.04);
-  --shadow-sm:
-    0 2px 4px 0 rgba(61, 52, 139, 0.05), 0 1px 2px 0 rgba(61, 52, 139, 0.03);
-  --shadow-md:
-    0 4px 12px -2px rgba(61, 52, 139, 0.08),
-    0 2px 6px -1px rgba(61, 52, 139, 0.04);
-  --shadow-lg:
-    0 12px 24px -4px rgba(61, 52, 139, 0.12),
-    0 4px 8px -2px rgba(61, 52, 139, 0.04);
-  --shadow-xl:
-    0 20px 32px -8px rgba(61, 52, 139, 0.16),
-    0 8px 16px -4px rgba(61, 52, 139, 0.06);
-}
-
+/* Change these five values to retheme the site's palette. */
 @theme {
-  /* 5 Core Palette Variables available in Tailwind */
-  --color-palette-1: var(--palette-color-1);
-  --color-palette-2: var(--palette-color-2);
-  --color-palette-3: var(--palette-color-3);
-  --color-palette-4: var(--palette-color-4);
-  --color-palette-5: var(--palette-color-5);
-
-  --color-palette-indigo: var(--palette-indigo);
-  --color-palette-iris: var(--palette-iris);
-  --color-palette-gold: var(--palette-gold);
-  --color-palette-orange: var(--palette-orange);
-  --color-palette-flame: var(--palette-flame);
-
-  /* Compatibility color tokens */
-  --color-palette-navy: var(--palette-navy);
-  --color-palette-steel-blue: var(--palette-steel-blue);
-  --color-palette-light-blue: var(--palette-light-blue);
-  --color-palette-cream: var(--palette-cream);
-  --color-palette-red: var(--palette-red);
-
-  /* Semantic Theme Tokens */
-  --color-bg-primary: var(--bg-primary);
-  --color-bg-surface: var(--bg-surface);
-  --color-bg-secondary: var(--bg-secondary);
-  --color-bg-tertiary: var(--bg-tertiary);
-
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-  --color-text-light: var(--text-light);
-
-  --color-accent-primary: var(--accent-primary);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-light: var(--accent-light);
-  --color-accent-border: var(--accent-border);
-
-  --color-accent-secondary: var(--accent-secondary);
-  --color-accent-secondary-hover: var(--accent-secondary-hover);
-  --color-accent-secondary-light: var(--accent-secondary-light);
-
-  --color-border-light: var(--border-light);
-  --color-border-subtle: var(--border-subtle);
-  --color-border-focus: var(--border-focus);
+  --color-primary: #52796f;
+  --color-secondary: #2f3e46;
+  --color-tertiary: #cad2c5;
+  --color-highlight: #354f52;
+  --color-accent: #84a98c;
 
   --font-sans:
     "Inter", "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont,
@@ -140,17 +14,20 @@
   --font-heading: "Plus Jakarta Sans", "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --shadow-xs: var(--shadow-xs);
-  --shadow-sm: var(--shadow-sm);
-  --shadow-md: var(--shadow-md);
-  --shadow-lg: var(--shadow-lg);
-  --shadow-xl: var(--shadow-xl);
-
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 9999px;
+
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-md:
+    0 4px 12px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg:
+    0 12px 24px -4px rgba(0, 0, 0, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
+  --shadow-xl:
+    0 20px 32px -8px rgba(0, 0, 0, 0.16), 0 8px 16px -4px rgba(0, 0, 0, 0.06);
 }
 
 html {
@@ -159,8 +36,8 @@ html {
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: color-mix(in srgb, white 97%, var(--color-primary));
+  color: var(--color-primary);
   font-family: var(--font-sans);
   min-height: 100vh;
   overflow-x: hidden;
@@ -171,21 +48,22 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: color-mix(in srgb, white 97%, var(--color-primary));
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--palette-light-blue);
+  background: var(--color-secondary);
   border-radius: 4px;
+  opacity: 0.5;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--palette-steel-blue);
+  background: var(--color-primary);
 }
 
 /* Pulse Dot Animation */
 .pulse-dot {
   width: 8px;
   height: 8px;
-  background-color: var(--accent-primary);
+  background-color: var(--color-accent);
   border-radius: 50%;
   position: relative;
   display: inline-block;
@@ -198,7 +76,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--accent-primary);
+  background-color: var(--color-accent);
   border-radius: 50%;
   animation: pulse-ring 2s infinite ease-out;
 }

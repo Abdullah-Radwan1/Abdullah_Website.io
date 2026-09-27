@@ -65,10 +65,10 @@ export const Hero: React.FC<HeroProps> = () => {
   return (
     <section
       id="home"
-      className="min-h-[calc(100vh-72px)] flex items-center justify-center py-24 px-6 bg-bg-primary relative overflow-hidden text-center"
+      className="min-h-[calc(100vh-72px)] flex items-center justify-center py-24 px-6 bg-primary/5 relative overflow-hidden text-center"
     >
       {/* Background Glow */}
-      <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(118,120,237,0.18)_0%,rgba(248,247,253,0)_70%)] pointer-events-none" />
+      <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full bg-secondary/15 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-[1000px] mx-auto flex flex-col items-center">
         {/* Availability */}
@@ -76,10 +76,10 @@ export const Hero: React.FC<HeroProps> = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-white border border-border-light rounded-full shadow-xs mb-7"
+          className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-white border border-primary/10 rounded-full shadow-xs mb-7"
         >
           <span className="pulse-dot" />
-          <span className="text-[0.8125rem] font-semibold text-text-secondary">
+          <span className="text-[0.8125rem] font-semibold text-primary/80">
             Available for Software Engineering Roles
           </span>
         </motion.div>
@@ -89,7 +89,7 @@ export const Hero: React.FC<HeroProps> = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-[0.95rem] font-bold text-accent-primary tracking-[0.12em] uppercase mb-4"
+          className="text-[0.95rem] font-bold text-accent tracking-[0.12em] uppercase mb-4"
         >
           {PERSONAL_INFO.role}
         </motion.p>
@@ -97,7 +97,7 @@ export const Hero: React.FC<HeroProps> = () => {
         {/* Main Animated Headline */}
         <AnimatedText
           text="Building scalable, reliable software that solves real problems"
-          className="m-0 max-w-[950px] text-text-primary font-extrabold text-[clamp(2.4rem,5.5vw,5rem)] leading-[1.08] tracking-[-0.045em]"
+          className="m-0 max-w-[950px] text-primary font-extrabold text-[clamp(2.4rem,5.5vw,5rem)] leading-[1.08] tracking-[-0.045em]"
         />
 
         {/* Supporting Text */}
@@ -109,7 +109,7 @@ export const Hero: React.FC<HeroProps> = () => {
             delay: 1.45,
             ease: "easeOut",
           }}
-          className="max-w-[680px] mx-auto mt-7 text-[1.1rem] leading-[1.7] text-text-secondary"
+          className="max-w-[680px] mx-auto mt-7 text-[1.1rem] leading-[1.7] text-primary/80"
         >
           I turn complex requirements into thoughtful, maintainable software
           through strong engineering practices and continuous learning.
@@ -128,7 +128,7 @@ export const Hero: React.FC<HeroProps> = () => {
         >
           <button
             onClick={() => handleScrollTo("projects")}
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold rounded-md bg-accent-primary text-white shadow-sm hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-4px_rgba(243,91,4,0.3)] transition-all duration-200 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold rounded-md bg-accent text-white shadow-sm hover:bg-highlight hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/30 transition-all duration-200 cursor-pointer"
           >
             <Code2 size={18} />
             <span>View Projects</span>
@@ -136,7 +136,7 @@ export const Hero: React.FC<HeroProps> = () => {
 
           <button
             onClick={() => handleScrollTo("contact")}
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold rounded-md bg-bg-surface border border-border-light text-text-primary shadow-xs hover:bg-bg-secondary hover:border-palette-steel-blue/40 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold rounded-md bg-white border border-primary/10 text-primary shadow-xs hover:bg-primary/5 hover:border-secondary/40 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
           >
             <Mail size={18} />
             <span>Contact Me</span>
@@ -145,7 +145,7 @@ export const Hero: React.FC<HeroProps> = () => {
           <a
             href={cvPdf}
             download="Abdullah_Radwan_CV.pdf"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold rounded-md bg-transparent border border-accent-border text-accent-primary hover:bg-accent-light hover:text-accent-hover transition-all duration-200 no-underline hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold rounded-md bg-transparent border border-accent/30 text-accent hover:bg-accent/10 hover:text-highlight transition-all duration-200 no-underline hover:-translate-y-0.5"
           >
             <FileText size={18} />
             <span>Download CV</span>

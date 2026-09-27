@@ -10,7 +10,7 @@ import { Footer } from "./components/Footer";
 
 export function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-bg-primary text-text-primary">
+    <div className="min-h-screen flex flex-col bg-primary/5 text-primary">
       {/* Navigation Header */}
       <Navbar />
 

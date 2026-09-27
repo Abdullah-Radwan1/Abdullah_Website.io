@@ -81,8 +81,8 @@ export const Navbar: React.FC<NavbarProps> = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center transition-all duration-300 backdrop-blur-md ${
         isScrolled
-          ? "bg-white/90 border-b border-border-light shadow-sm"
-          : "bg-bg-primary/80 border-b border-transparent"
+          ? "bg-white/90 border-b border-primary/10 shadow-sm"
+          : "bg-white/80 border-b border-transparent"
       }`}
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 flex items-center justify-between">
@@ -90,21 +90,21 @@ export const Navbar: React.FC<NavbarProps> = () => {
         <a
           href="#home"
           onClick={(e) => handleNavClick(e, "#home")}
-          className="flex items-center gap-3 text-text-primary font-bold text-lg tracking-tight group"
+          className="flex items-center gap-3 text-primary font-bold text-lg tracking-tight group"
         >
-          <div className="w-[38px] h-[38px] rounded-[10px] bg-gradient-to-br from-palette-navy to-palette-steel-blue text-white flex items-center justify-center font-extrabold text-base shadow-[0_4px_10px_rgba(29,53,87,0.25)] transition-transform duration-200 group-hover:scale-105">
+          <div className="w-[38px] h-[38px] rounded-[10px] bg-gradient-to-br from-primary to-secondary text-white flex items-center justify-center font-extrabold text-base shadow-md shadow-primary/25 transition-transform duration-200 group-hover:scale-105">
             AR
           </div>
           <div className="flex flex-col">
             <span className="leading-tight">{PERSONAL_INFO.name}</span>
-            <span className="text-[0.725rem] font-medium text-text-muted leading-tight">
+            <span className="text-[0.725rem] font-medium text-primary/65 leading-tight">
               Software Engineer
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-2 bg-bg-secondary px-2.5 py-1.5 rounded-full border border-border-light">
+        <nav className="hidden md:flex items-center gap-2 bg-primary/5 px-2.5 py-1.5 rounded-full border border-primary/10">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.replace("#", "");
             return (
@@ -114,8 +114,8 @@ export const Navbar: React.FC<NavbarProps> = () => {
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ${
                   isActive
-                    ? "text-accent-primary bg-white shadow-xs"
-                    : "text-text-secondary hover:text-text-primary bg-transparent"
+                    ? "text-accent bg-white shadow-xs"
+                    : "text-primary/80 hover:text-primary bg-transparent"
                 }`}
               >
                 {link.name}
@@ -129,17 +129,17 @@ export const Navbar: React.FC<NavbarProps> = () => {
           <a
             href={cvPdf}
             download="Abdullah_Radwan_CV.pdf"
-            className="inline-flex items-center gap-1.5 font-semibold text-sm px-3.5 py-2 rounded-md border border-border-light bg-bg-surface hover:bg-bg-secondary text-text-primary shadow-xs transition-all duration-200 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-1.5 font-semibold text-sm px-3.5 py-2 rounded-md border border-primary/10 bg-white hover:bg-primary/5 text-primary shadow-xs transition-all duration-200 hover:-translate-y-0.5"
             aria-label="Download CV"
           >
-            <FileText size={16} className="text-accent-primary" />
+            <FileText size={16} className="text-accent" />
             <span>Download CV</span>
           </a>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-md border border-border-light bg-bg-surface text-text-primary hover:bg-bg-secondary transition-colors"
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-md border border-primary/10 bg-white text-primary hover:bg-primary/5 transition-colors"
             aria-label="Toggle mobile navigation menu"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -149,23 +149,23 @@ export const Navbar: React.FC<NavbarProps> = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-[72px] left-0 right-0 bg-bg-surface border-b border-border-light shadow-lg p-5 flex flex-col gap-3 animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="md:hidden absolute top-[72px] left-0 right-0 bg-white border-b border-primary/10 shadow-lg p-5 flex flex-col gap-3 animate-in fade-in slide-in-from-top-2 duration-200">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="flex items-center justify-between p-3 rounded-md text-text-primary font-semibold text-sm bg-bg-secondary hover:bg-bg-tertiary transition-colors"
+              className="flex items-center justify-between p-3 rounded-md text-primary font-semibold text-sm bg-primary/5 hover:bg-primary/10 transition-colors"
             >
               <span>{link.name}</span>
-              <ChevronRight size={16} className="text-text-muted" />
+              <ChevronRight size={16} className="text-primary/65" />
             </a>
           ))}
           <a
             href={cvPdf}
             download="Abdullah_Radwan_CV.pdf"
             onClick={() => setMobileMenuOpen(false)}
-            className="w-full mt-2 flex items-center justify-center gap-2 py-3 px-4 rounded-md font-semibold text-white bg-accent-primary hover:bg-accent-hover shadow-sm transition-all duration-200"
+            className="w-full mt-2 flex items-center justify-center gap-2 py-3 px-4 rounded-md font-semibold text-white bg-accent hover:bg-highlight shadow-sm transition-all duration-200"
           >
             <FileText size={16} />
             <span>Download CV (PDF)</span>

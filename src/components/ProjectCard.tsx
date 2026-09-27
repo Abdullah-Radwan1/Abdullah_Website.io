@@ -18,10 +18,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div
-      className={`bg-bg-surface rounded-2xl p-7 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 hover:border-palette-steel-blue/40 ${
+      className={`bg-white rounded-2xl p-7 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 hover:border-secondary/40 ${
         project.isFeatured
-          ? "border-2 border-accent-border shadow-md shadow-accent-primary/5"
-          : "border border-border-light shadow-sm"
+          ? "border-2 border-accent/30 shadow-md shadow-accent/5"
+          : "border border-primary/10 shadow-sm"
       }`}
     >
       <div>
@@ -29,7 +29,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         {imageUrl && (
           <div
             onClick={() => onOpenModal(project)}
-            className="w-full rounded-lg overflow-hidden mb-5 border border-border-light bg-bg-secondary aspect-video cursor-pointer group"
+            className="w-full rounded-lg overflow-hidden mb-5 border border-primary/10 bg-primary/5 aspect-video cursor-pointer group"
           >
             <img
               src={imageUrl}
@@ -41,15 +41,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
 
         {/* Title & Subtitle */}
-        <h3 className="text-xl font-bold text-text-primary mb-1.5">
+        <h3 className="text-xl font-bold text-primary mb-1.5">
           {project.title}
         </h3>
-        <p className="text-sm text-accent-primary font-semibold mb-3.5">
+        <p className="text-sm text-accent font-semibold mb-3.5">
           {project.subtitle}
         </p>
 
         {/* Description */}
-        <p className="text-[0.90625rem] text-text-secondary leading-relaxed mb-5">
+        <p className="text-[0.90625rem] text-primary/80 leading-relaxed mb-5">
           {project.description}
         </p>
 
@@ -58,9 +58,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {project.features.slice(0, 3).map((feat, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-1.5 text-[0.8125rem] text-text-primary font-medium"
+              className="flex items-center gap-1.5 text-[0.8125rem] text-primary font-medium"
             >
-              <CheckCircle2 size={14} className="text-accent-primary shrink-0" />
+              <CheckCircle2 size={14} className="text-accent shrink-0" />
               <span>{feat}</span>
             </div>
           ))}
@@ -73,7 +73,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-mono font-semibold bg-bg-secondary text-text-secondary border border-border-light hover:bg-accent-light hover:text-accent-primary hover:border-accent-border transition-colors"
+              className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-mono font-semibold bg-primary/5 text-primary/80 border border-primary/10 hover:bg-accent/10 hover:text-accent hover:border-accent/30 transition-colors"
             >
               {tech}
             </span>
@@ -81,14 +81,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center justify-between border-t border-border-light pt-4">
+        <div className="flex items-center justify-between border-t border-primary/10 pt-4">
           <div className="flex items-center gap-2">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md text-xs font-semibold bg-accent-primary text-white hover:bg-accent-hover shadow-xs transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md text-xs font-semibold bg-accent text-white hover:bg-highlight shadow-xs transition-all duration-200 hover:-translate-y-0.5"
               >
                 <ExternalLink size={14} />
                 <span>Live Project</span>
@@ -99,7 +99,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md text-xs font-semibold bg-bg-surface border border-border-light text-text-primary hover:bg-bg-secondary hover:border-palette-steel-blue/40 shadow-xs transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md text-xs font-semibold bg-white border border-primary/10 text-primary hover:bg-primary/5 hover:border-secondary/40 shadow-xs transition-all duration-200 hover:-translate-y-0.5"
               >
                 <GithubIcon size={14} />
                 <span>GitHub</span>
@@ -109,7 +109,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
           <button
             onClick={() => onOpenModal(project)}
-            className="text-xs font-semibold text-accent-primary hover:text-accent-hover flex items-center gap-1 transition-colors cursor-pointer"
+            className="text-xs font-semibold text-accent hover:text-highlight flex items-center gap-1 transition-colors cursor-pointer"
           >
             <span>Details</span>
             <ArrowRight size={14} />

@@ -11,12 +11,12 @@ import { PERSONAL_INFO } from "../data/portfolioData";
 
 export const About: React.FC = () => {
   const iconMap: Record<string, React.ReactNode> = {
-    Cpu: <Cpu size={22} className="text-bg-primary" />,
-    Layers: <Layers size={22} className="text-palette-steel-blue" />,
-    Zap: <Zap size={22} className="text-bg-primary" />,
-    Target: <Target size={22} className="text-palette-navy" />,
-    ShieldCheck: <ShieldCheck size={22} className="text-palette-steel-blue" />,
-    GraduationCap: <GraduationCap size={22} className="text-palette-navy" />,
+    Cpu: <Cpu size={22} className="text-primary" />,
+    Layers: <Layers size={22} className="text-secondary" />,
+    Zap: <Zap size={22} className="text-primary" />,
+    Target: <Target size={22} className="text-primary" />,
+    ShieldCheck: <ShieldCheck size={22} className="text-secondary" />,
+    GraduationCap: <GraduationCap size={22} className="text-primary" />,
   };
 
   return (
@@ -24,13 +24,13 @@ export const About: React.FC = () => {
       <div className="w-full max-w-[1200px] mx-auto px-6">
         {/* Section Header */}
         <div className="mb-12 max-w-[680px]">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-accent-light border border-accent-border text-accent-primary text-[0.8125rem] font-semibold rounded-full uppercase tracking-wider mb-4">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-accent/10 border border-accent/30 text-accent text-[0.8125rem] font-semibold rounded-full uppercase tracking-wider mb-4">
             About Me
           </span>
-          <h2 className="text-[clamp(1.75rem,2.5vw+1rem,2.5rem)] font-bold text-text-primary mb-3 leading-tight tracking-tight">
+          <h2 className="text-[clamp(1.75rem,2.5vw+1rem,2.5rem)] font-bold text-primary mb-3 leading-tight tracking-tight">
             Engineering Principles & Core Focus
           </h2>
-          <p className="text-lg text-text-muted leading-relaxed">
+          <p className="text-lg text-primary/65 leading-relaxed">
             A disciplined full-stack engineer dedicated to constructing
             production-grade applications with clean code, robust backend
             infrastructure, and high UX fidelity.
@@ -40,23 +40,23 @@ export const About: React.FC = () => {
         {/* Detailed CV Text Overview & Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
           {/* Detailed Narrative */}
-          <div className="bg-bg-primary border border-border-light rounded-3xl p-8 flex flex-col gap-4 shadow-xs">
-            <h3 className="text-xl font-bold text-text-primary">
+          <div className="bg-primary/5 border border-primary/10 rounded-3xl p-8 flex flex-col gap-4 shadow-xs">
+            <h3 className="text-xl font-bold text-primary">
               Software Engineering Approach
             </h3>
-            <h5 className="text-base font-bold text-text-primary mt-2">
+            <h5 className="text-base font-bold text-primary mt-2">
               Engineering Mindset
             </h5>
-            <p className="text-text-secondary leading-relaxed">
+            <p className="text-primary/80 leading-relaxed">
               I’m a software engineer focused on building reliable,
               maintainable, and adaptable systems. I care about understanding
               requirements clearly, designing thoughtful solutions, and creating
               software that remains easy to evolve.
             </p>
-            <h5 className="text-base font-bold text-text-primary mt-2">
+            <h5 className="text-base font-bold text-primary mt-2">
               Problem Solving
             </h5>
-            <p className="text-text-secondary leading-relaxed">
+            <p className="text-primary/80 leading-relaxed">
               I approach complex problems with a structured, end-to-end
               mindset—from understanding the business need to designing and
               delivering practical solutions. I value clean code, clear
@@ -70,15 +70,15 @@ export const About: React.FC = () => {
             {PERSONAL_INFO.aboutHighlights.map((highlight) => (
               <div
                 key={highlight.title}
-                className="bg-bg-surface border border-border-light rounded-2xl p-5 flex flex-col gap-2.5 shadow-sm hover:shadow-md hover:border-palette-steel-blue/40 hover:-translate-y-0.5 transition-all duration-200"
+                className="bg-white border border-primary/10 rounded-2xl p-5 flex flex-col gap-2.5 shadow-sm hover:shadow-md hover:border-secondary/40 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-md bg-bg-secondary flex items-center justify-center border border-border-light">
+                <div className="w-10 h-10 rounded-md bg-primary/5 flex items-center justify-center border border-primary/10">
                   {iconMap[highlight.icon]}
                 </div>
-                <h4 className="text-base font-bold text-text-primary">
+                <h4 className="text-base font-bold text-primary">
                   {highlight.title}
                 </h4>
-                <p className="text-[0.8125rem] text-text-secondary leading-normal">
+                <p className="text-[0.8125rem] text-primary/80 leading-normal">
                   {highlight.desc}
                 </p>
               </div>
