@@ -24,10 +24,7 @@ export const Contact: React.FC = () => {
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     if (!serviceId || !templateId || !publicKey) {
-      setErrorMessage(
-        "EmailJS credentials are not configured yet in your .env file. Please set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY, or reach out directly to " +
-          PERSONAL_INFO.email,
-      );
+      setErrorMessage("What an Error!");
       return;
     }
 
